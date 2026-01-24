@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORGIA 2026 | Forge Ideas. Build Impact.</title>
+    <meta name="description" content="FORGIA 2026 - A Makeathon cum Project Expo organized by ICI Sustainable Engineers Club at MKCE. Join us on January 31, 2026.">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ========== PAGE LOADER (REMOVABLE) ========== -->
+    <!-- To remove: Delete this entire section from here to the closing comment -->
+    <div class="page-loader" id="pageLoader">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" height="128px" width="128px" class="pl">
+            <circle stroke-dashoffset="-376.4" stroke-dasharray="377 377" stroke-linecap="round" transform="rotate(-90,64,64)" stroke-width="8" stroke="hsl(3,60%,65%)" fill="none" r="60" cy="64" cx="64" class="pl__ring1"></circle>
+            <circle stroke-dashoffset="-329.3" stroke-dasharray="329.9 329.9" stroke-linecap="round" transform="rotate(-90,64,64)" stroke-width="7" stroke="hsl(13,60%,65%)" fill="none" r="52.5" cy="64" cx="64" class="pl__ring2"></circle>
+            <circle stroke-dashoffset="-288.6" stroke-dasharray="289 289" stroke-linecap="round" transform="rotate(-90,64,64)" stroke-width="6" stroke="hsl(23,60%,65%)" fill="none" r="46" cy="64" cx="64" class="pl__ring3"></circle>
+            <circle stroke-dashoffset="-254" stroke-dasharray="254.5 254.5" stroke-linecap="round" transform="rotate(-90,64,64)" stroke-width="5" stroke="hsl(33,55%,70%)" fill="none" r="40.5" cy="64" cx="64" class="pl__ring4"></circle>
+            <circle stroke-dashoffset="-225.8" stroke-dasharray="226.2 226.2" stroke-linecap="round" transform="rotate(-90,64,64)" stroke-width="4" stroke="hsl(43,55%,70%)" fill="none" r="36" cy="64" cx="64" class="pl__ring5"></circle>
+            <circle stroke-dashoffset="-203.9" stroke-dasharray="204.2 204.2" stroke-linecap="round" transform="rotate(-90,64,64)" stroke-width="3" stroke="hsl(53,55%,70%)" fill="none" r="32.5" cy="64" cx="64" class="pl__ring6"></circle>
+        </svg>
+    </div>
+    <!-- ========== END PAGE LOADER ========== -->
+
+    <!-- ========== REGISTRATION DEADLINE NOTIFICATION (REMOVE AFTER JAN 28) ========== -->
+    <!-- To remove after deadline: Delete this entire section or comment it out -->
+    <div class="deadline-notification" id="deadlineNotification">
+        <div class="notification-content">
+            <div class="notification-icon">⌛</div>
+            <div class="notification-text">
+                <h4>Hurry Up!</h4>
+                <p>Registration closes on <strong>January 28, 2026</strong>. Secure your spot now!</p>
+            </div>
+            <button class="notification-close" onclick="closeNotification()">×</button>
+        </div>
+    </div>
+    <!-- ========== END DEADLINE NOTIFICATION ========== -->
+
+    <!-- Floating Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-text">FORGIA</span>
+                <span class="logo-year">2026</span>
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#journey" class="nav-link">Journey</a>
+                <a href="#expo" class="nav-link">Expo</a>
+                <a href="#themes" class="nav-link">Themes</a>
+                <a href="#coordinators" class="nav-link">Coordinators</a>
+                <a href="#register" class="nav-link">Register</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-club-banner">
+                <span class="club-label">ICI – Sustainable Engineers Club Proudly Presents</span>
+            </div>
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>Makeathon × Project Expo</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">FORGIA</span>
+                <span class="title-year">2026</span>
+            </h1>
+            <p class="hero-tagline">Forge Ideas. Build Impact.</p>
+            <p class="hero-description">
+                Experience a day of live idea building, continuous evaluation, and project showcasing. 
+                Collaborate, innovate, and present your solutions to the entire campus community.
+            </p>
+            <div class="hero-info">
+                <div class="info-card">
+                    <div class="info-icon">📅</div>
+                    <div class="info-text">
+                        <span class="info-label">Date</span>
+                        <span class="info-value">January 31, 2026</span>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">⏰</div>
+                    <div class="info-text">
+                        <span class="info-label">Time</span>
+                        <span class="info-value">9:00 AM – 5:00 PM</span>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <span class="info-label">Venue</span>
+                        <span class="info-value">MKCE Campus</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#register" class="hero-register-btn">
+                    <div class="btn-content">
+                        <div class="btn-countdown" id="btnCountdown">
+                            <span class="countdown-part"><span id="btnDays">00</span>d</span>
+                            <span class="countdown-part"><span id="btnHours">00</span>h</span>
+                            <span class="countdown-part"><span id="btnMinutes">00</span>m</span>
+                            <span class="countdown-part"><span id="btnSeconds">00</span>s</span>
+                        </div>
+                        <span class="btn-text">Register Now</span>
+                    </div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll to explore</span>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What is FORGIA?</span>
+                <h2 class="section-title">Where Ideas Come Alive</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-lead">
+                        FORGIA is not just another competition — it's a <strong>creative battlefield</strong> where 
+                        innovation meets action, and ideas transform into reality.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🔨</div>
+                            <div class="feature-content">
+                                <h3>Makeathon</h3>
+                                <p>Teams build and evolve their ideas live on the event day. Watch concepts take shape in real-time through continuous iterations.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🎪</div>
+                            <div class="feature-content">
+                                <h3>Project Expo</h3>
+                                <p>Showcase your final creations to the entire campus. Present, explain, and inspire visitors from all departments.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🤝</div>
+                            <div class="feature-content">
+                                <h3>Learning Experience</h3>
+                                <p>Develop teamwork, presentation skills, and learn how to communicate value — essential skills beyond the classroom.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="visual-card">
+                        <div class="visual-content">
+                            <div class="stat-item">
+                                <span class="stat-number">40</span>
+                                <span class="stat-label">Selected Teams</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">8</span>
+                                <span class="stat-label">Hours of Innovation</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">6</span>
+                                <span class="stat-label">Exciting Themes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey" id="journey">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Event Journey</span>
+                <h2 class="section-title">Your Path to Impact</h2>
+            </div>
+            
+            <!-- Important Dates -->
+            <div class="dates-grid">
+                <div class="date-card">
+                    <div class="date-marker">
+                        <span class="date-day">28</span>
+                        <span class="date-month">JAN</span>
+                    </div>
+                    <div class="date-content">
+                        <h3>Registration Closes</h3>
+                        <p>Last date for registration & idea submission</p>
+                    </div>
+                </div>
+                <div class="date-card">
+                    <div class="date-marker">
+                        <span class="date-day">29</span>
+                        <span class="date-month">JAN</span>
+                    </div>
+                    <div class="date-content">
+                        <h3>Team Announcement</h3>
+                        <p>Top 40 teams revealed</p>
+                    </div>
+                </div>
+                <div class="date-card highlight">
+                    <div class="date-marker">
+                        <span class="date-day">31</span>
+                        <span class="date-month">JAN</span>
+                    </div>
+                    <div class="date-content">
+                        <h3>FORGIA Day!</h3>
+                        <p>The main event unfolds</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Day Timeline -->
+            <div class="timeline-section">
+                <h3 class="timeline-title">Event Day Flow</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">9:00 – 9:30 AM</div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge welcome">Opening</div>
+                            <h4>Welcome Session</h4>
+                            <p>Address by HoDs of all departments & event briefing</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">9:30 AM</div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge start">Begin</div>
+                            <h4>Makeathon Begins</h4>
+                            <p>Teams start working on their ideas live</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">10:30 AM – 3:30 PM</div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge elimination">Rounds</div>
+                            <h4>Live Elimination Rounds</h4>
+                            <p>Continuous evaluation at 10:30, 11:30, 12:30 and beyond</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">3:30 PM</div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge expo">Expo</div>
+                            <h4>Project Expo Begins</h4>
+                            <p>Top 25 teams showcase their projects</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">5:00 PM</div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge finale">Finale</div>
+                            <h4>Results Announced</h4>
+                            <p>Winners revealed & celebration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Expo Section -->
+    <section class="expo" id="expo">
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-tag">Project Expo</span>
+                <h2 class="section-title">Showcase Your Creation</h2>
+            </div>
+            <div class="expo-content">
+                <div class="expo-main">
+                    <div class="expo-description">
+                        <p>The Project Expo transforms FORGIA into a vibrant fair of innovation. Each team gets their own display table to present their work to the entire campus community.</p>
+                    </div>
+                    <div class="expo-features">
+                        <div class="expo-feature">
+                            <div class="expo-icon">🎯</div>
+                            <h4>Your Own Stage</h4>
+                            <p>Each team receives a dedicated display table to showcase their project</p>
+                        </div>
+                        <div class="expo-feature">
+                            <div class="expo-icon">👥</div>
+                            <h4>Campus-Wide Visitors</h4>
+                            <p>Students from all departments and years explore freely</p>
+                        </div>
+                        <div class="expo-feature">
+                            <div class="expo-icon">📱</div>
+                            <h4>QR Voting System</h4>
+                            <p>Each team has a unique QR code — visitors scan and vote</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="expo-learning">
+                    <h3>What You'll Learn</h3>
+                    <ul class="learning-list">
+                        <li>
+                            <span class="learning-icon">💡</span>
+                            <span>How to present ideas effectively</span>
+                        </li>
+                        <li>
+                            <span class="learning-icon">🎨</span>
+                            <span>How to attract and hold attention</span>
+                        </li>
+                        <li>
+                            <span class="learning-icon">💬</span>
+                            <span>How to explain value clearly</span>
+                        </li>
+                        <li>
+                            <span class="learning-icon">🚀</span>
+                            <span>How products are "sold" to real users</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section class="themes" id="themes">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Innovation Tracks</span>
+                <h2 class="section-title">Choose Your Theme</h2>
+                <p class="section-subtitle">Pick a theme that resonates with your vision. There are no fixed problem statements — your creativity defines the solution.</p>
+            </div>
+            <div class="themes-grid">
+                <div class="theme-card" data-theme="1">
+                    <div class="theme-icon">🏠</div>
+                    <h3>Smart & Sustainable Living</h3>
+                    <div class="theme-glow"></div>
+                </div>
+                <div class="theme-card" data-theme="2">
+                    <div class="theme-icon">🌱</div>
+                    <h3>Green Technology & Environmental Monitoring</h3>
+                    <div class="theme-glow"></div>
+                </div>
+                <div class="theme-card" data-theme="3">
+                    <div class="theme-icon">🏗️</div>
+                    <h3>Smart Infrastructure & Built Environment</h3>
+                    <div class="theme-glow"></div>
+                </div>
+                <div class="theme-card" data-theme="4">
+                    <div class="theme-icon">♿</div>
+                    <h3>Human-Centric Technology & Accessibility</h3>
+                    <div class="theme-glow"></div>
+                </div>
+                <div class="theme-card" data-theme="5">
+                    <div class="theme-icon">🎓</div>
+                    <h3>Smart Systems for Education & Campus Life</h3>
+                    <div class="theme-glow"></div>
+                </div>
+                <div class="theme-card" data-theme="6">
+                    <div class="theme-icon">📊</div>
+                    <h3>Data-Driven Systems & Digital Intelligence</h3>
+                    <div class="theme-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluation Section -->
+    <section class="evaluation" id="evaluation">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How We Evaluate</span>
+                <h2 class="section-title">Continuous & Fair Assessment</h2>
+            </div>
+            <div class="evaluation-content">
+                <div class="criteria-section">
+                    <h3>Evaluation Criteria</h3>
+                    <div class="criteria-grid">
+                        <div class="criteria-item">
+                            <span class="criteria-icon">✨</span>
+                            <span>Innovation & Originality</span>
+                        </div>
+                        <div class="criteria-item">
+                            <span class="criteria-icon">🎯</span>
+                            <span>Theme Relevance</span>
+                        </div>
+                        <div class="criteria-item">
+                            <span class="criteria-icon">🔍</span>
+                            <span>Problem Understanding</span>
+                        </div>
+                        <div class="criteria-item">
+                            <span class="criteria-icon">💡</span>
+                            <span>Solution Clarity</span>
+                        </div>
+                        <div class="criteria-item">
+                            <span class="criteria-icon">🤝</span>
+                            <span>Team Collaboration</span>
+                        </div>
+                        <div class="criteria-item">
+                            <span class="criteria-icon">⚡</span>
+                            <span>Live Execution</span>
+                        </div>
+                        <div class="criteria-item">
+                            <span class="criteria-icon">👥</span>
+                            <span>Audience Engagement</span>
+                        </div>
+                        <div class="criteria-item">
+                            <span class="criteria-icon">🎤</span>
+                            <span>Presentation Quality</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="evaluators-section">
+                    <h3>Evaluated By</h3>
+                    <div class="evaluators-list">
+                        <div class="evaluator-item">
+                            <div class="evaluator-icon">👨‍🏫</div>
+                            <div class="evaluator-text">
+                                <h4>Faculty Mentors</h4>
+                                <p>Continuous guidance during makeathon</p>
+                            </div>
+                        </div>
+                        <div class="evaluator-item">
+                            <div class="evaluator-icon">⚖️</div>
+                            <div class="evaluator-text">
+                                <h4>Expert Jury</h4>
+                                <p>Professional evaluation at key milestones</p>
+                            </div>
+                        </div>
+                        <div class="evaluator-item">
+                            <div class="evaluator-icon">🗳️</div>
+                            <div class="evaluator-text">
+                                <h4>Student Voting</h4>
+                                <p>Peer recognition during project expo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="evaluator-note">Final results are based on overall combined performance across all evaluation sources.</p>
+                </div>
+            </div>
+            <div class="evaluation-footer-note">
+                <p>Final results are based on overall combined performance across all evaluation sources.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coordinators Section -->
+    <section class="coordinators" id="coordinators">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">The Driving Force</span>
+                <h2 class="section-title">Meet Our Coordinators</h2>
+            </div>
+            
+            <!-- Faculty Coordinator -->
+            <div class="coordinator-category">
+                <h3 class="category-title">Faculty Coordinator</h3>
+                <div class="coordinators-grid faculty-grid">
+                    <div class="coordinator-card featured">
+                        <div class="coordinator-image">
+                            <img src="static/Images/Co-ordinators/bala10.jpeg" alt="Dr. P. Balamurugan">
+                        </div>
+                        <div class="coordinator-info">
+                            <h4>Dr. P. Balamurugan</h4>
+                            <p class="coordinator-role">Faculty Coordinator</p>
+                            <div class="coordinator-links">
+                                <a href="tel:+919865805252" class="coord-link" title="+91 98658 05252">
+                                    <span>📞</span>
+                                </a>
+                                <a href="mailto:balamurugan.p@mkce.ac.in" class="coord-link" title="balamurugan.p@mkce.ac.in">
+                                    <span>📧</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Coordinators -->
+            <div class="coordinator-category">
+                <h3 class="category-title">Student Coordinators</h3>
+                <div class="coordinators-grid">
+                    <div class="coordinator-card">
+                        <div class="coordinator-image">
+                            <img src="static/Images/Co-ordinators/Jeeva.jpg" alt="S.J. Jeevanantham">
+                        </div>
+                        <div class="coordinator-info">
+                            <h4>S.J. Jeevanantham</h4>
+                            <p class="coordinator-role">President</p>
+                            <div class="coordinator-links">
+                                <a href="tel:+919962531002" class="coord-link" title="+91 99625 31002">
+                                    <span>📞</span>
+                                </a>
+                                <a href="mailto:jeevaselvaraj1981@gmail.com" class="coord-link" title="jeevaselvaraj1981@gmail.com">
+                                    <span>📧</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coordinator-card">
+                        <div class="coordinator-image">
+                            <img src="static/Images/Co-ordinators/Ruthu.jpg" alt="Ruthuvarshan">
+                        </div>
+                        <div class="coordinator-info">
+                            <h4>Ruthuvarshan</h4>
+                            <p class="coordinator-role">Vice President</p>
+                            <div class="coordinator-links">
+                                <a href="tel:+916379333049" class="coord-link" title="+91 6379 333 049">
+                                    <span>📞</span>
+                                </a>
+                                <a href="mailto:ruthuvarshan18@gmail.com" class="coord-link" title="ruthuvarshan18@gmail.com">
+                                    <span>📧</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coordinator-card">
+                        <div class="coordinator-image">
+                            <img src="static/Images/Co-ordinators/jai_page-0001.jpg" alt="Jai Narendiran">
+                        </div>
+                        <div class="coordinator-info">
+                            <h4>Jai Narendiran</h4>
+                            <p class="coordinator-role">Secretary</p>
+                            <div class="coordinator-links">
+                                <a href="tel:+916381689440" class="coord-link" title="+91 6381 689 440">
+                                    <span>📞</span>
+                                </a>
+                                <a href="mailto:jaiguhanathan@gmail.com" class="coord-link" title="jaiguhanathan@gmail.com">
+                                    <span>📧</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coordinator-card">
+                        <div class="coordinator-image">
+                            <img src="static/Images/Co-ordinators/Harish Pranav.jpg" alt="Harish Pranav S">
+                        </div>
+                        <div class="coordinator-info">
+                            <h4>Harish Pranav S</h4>
+                            <p class="coordinator-role">Treasurer</p>
+                            <div class="coordinator-links">
+                                <a href="tel:+917845693765" class="coord-link" title="+91 7845 693 765">
+                                    <span>📞</span>
+                                </a>
+                                <a href="mailto:harishpranavs259@gmail.com" class="coord-link" title="harishpranavs259@gmail.com">
+                                    <span>📧</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coordinator-card">
+                        <div class="coordinator-image">
+                            <img src="static/Images/Co-ordinators/Event Coordinator.jpg" alt="M. Nagaraj">
+                        </div>
+                        <div class="coordinator-info">
+                            <h4>M. Nagaraj</h4>
+                            <p class="coordinator-role">Event Coordinator</p>
+                            <div class="coordinator-links">
+                                <a href="tel:+918667585449" class="coord-link" title="+91 86675 85449">
+                                    <span>📞</span>
+                                </a>
+                                <a href="mailto:sarathinagaraj7@gmail.com" class="coord-link" title="sarathinagaraj7@gmail.com">
+                                    <span>📧</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coordinator-card">
+                        <div class="coordinator-image">
+                            <img src="static/Images/Co-ordinators/Heman.jpg" alt="A. Heman">
+                        </div>
+                        <div class="coordinator-info">
+                            <h4>A. Heman</h4>
+                            <p class="coordinator-role">Event Coordinator</p>
+                            <div class="coordinator-links">
+                                <a href="tel:+917695811058" class="coord-link" title="+91 76958 11058">
+                                    <span>📞</span>
+                                </a>
+                                <a href="mailto:hemanarunkumar2007@gmail.com" class="coord-link" title="hemanarunkumar2007@gmail.com">
+                                    <span>📧</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="register" id="register">
+        <div class="container">
+            <div class="register-wrapper">
+                <div class="register-content">
+                    <span class="section-tag">Join FORGIA</span>
+                    <h2 class="register-title">Ready to Forge Your Ideas?</h2>
+                    <p class="register-description">
+                        Form your team, pick a theme, and submit your initial idea. 
+                        The top 40 teams will be selected to participate in FORGIA 2026.
+                    </p>
+                    <div class="register-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">👥</span>
+                            <div class="detail-text">
+                                <strong>Team Size</strong>
+                                <span>3 – 4 Members</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <div class="detail-text">
+                                <strong>Deadline</strong>
+                                <span>January 28, 2026</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🎯</span>
+                            <div class="detail-text">
+                                <strong>Selection</strong>
+                                <span>Top 40 Teams</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="register-action">
+                    <div class="qr-placeholder">
+                        <img src="static/Images/Others/Registration QR Code.png" alt="FORGIA 2026 Registration QR Code" class="qr-image">
+                    </div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmKgVuSq3bpVqgdcg_9o2aDQZZzyhXV3rq4SuH-AcBI96-dQ/viewform" class="register-link" target="_blank" rel="noopener">
+                        <span>Registration Form</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                    <p class="register-note">Scan the QR code or click the link above</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizers Section -->
+    <section class="organizers" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">The Team Behind</span>
+                <h2 class="section-title">Organizers & Contact</h2>
+            </div>
+            <div class="organizers-content">
+                <div class="org-info">
+                    <div class="org-card primary">
+                        <h3>Organized By</h3>
+                        <p class="org-name">Indian Concrete Institute</p>
+                        <p class="org-sub">Sustainable Engineers Club</p>
+                    </div>
+                    <div class="org-card">
+                        <h3>Institution</h3>
+                        <p class="org-name">M. Kumarasamy College of Engineering</p>
+                        <p class="org-sub">Karur, Tamil Nadu</p>
+                    </div>
+                </div>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-avatar">
+                            <span>👤</span>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Staff Coordinator</h4>
+                            <p class="contact-name">[Name to be updated]</p>
+                            <p class="contact-detail">[Department]</p>
+                            <a href="tel:+91XXXXXXXXXX" class="contact-phone">+91 XXXXX XXXXX</a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-avatar">
+                            <span>👤</span>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Student Coordinator</h4>
+                            <p class="contact-name">S.J. Jeevanantham</p>
+                            <p class="contact-detail">ICI – Sustainable Engineers Club</p>
+                            <a href="tel:+91 99625 31002" class="contact-phone">+91 99625 31002</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="partners-section">
+                    <h3>Our Partners & Sponsors</h3>
+                    <p class="partners-intro">Supported by leading organizations in education and industry</p>
+                    <div class="partners-category">
+                        <h4 class="partner-category-title">Title Sponsors</h4>
+                        <div class="sponsors-grid">
+                            <div class="partner-logo-card featured">
+                                <img src="static/Images/Others/ICI.png" alt="Indian Concrete Institute">
+                            </div>
+                            <div class="partner-logo-card featured">
+                                <img src="static/Images/Others/ultratech Logo.png" alt="UltraTech Cement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="partners-category">
+                        <h4 class="partner-category-title">Institutional Partners</h4>
+                        <div class="partners-grid">
+                            <div class="partner-logo-card">
+                                <img src="static/Images/Others/clgnamelogo.png" alt="M. Kumarasamy College of Engineering">
+                            </div>
+                            <div class="partner-logo-card">
+                                <img src="static/Images/Others/clg_logo.png" alt="MKCE Civil Department">
+                            </div>
+                            <div class="partner-logo-card">
+                                <img src="static/Images/Others/arora.png" alt="Aaroh - Club Initiative">
+                            </div>
+                            <div class="partner-logo-card">
+                                <img src="static/Images/Others/Ranking.png" alt="MKCE Rankings">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <h2 class="footer-logo">FORGIA <span>2026</span></h2>
+                    <p class="footer-tagline">Forge Ideas. Build Impact.</p>
+                </div>
+                <div class="footer-org">
+                    <p>Organized by</p>
+                    <p><strong>ICI – Sustainable Engineers Club</strong></p>
+                    <p>M. Kumarasamy College of Engineering</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <span>📧</span>
+                        <a href="mailto:jeevaselvaraj1981@gmail.com">jeevaselvaraj1981@gmail.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📧</span>
+                        <a href="mailto:harishpranavs259@gmail.com">harishpranavs259@gmail.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📞</span>
+                        <a href="tel:+919962531002">+91 99625 31002</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📞</span>
+                        <a href="tel:+917845693765">+91 7845 693765</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 FORGIA. All rights reserved.</p>
+                
+                <!-- ========== ENTREPIX REDIRECT BUTTON (REMOVABLE) ========== -->
+                <!-- To remove: Delete this entire section -->
+                <div class="entrepix-redirect">
+                    <div class="group relative flex justify-center items-center text-zinc-600 text-sm font-bold">
+                        <div class="entrepix-tooltip absolute opacity-0 group-hover:opacity-100 group-hover:-translate-y-[150%] -translate-y-[300%] duration-500 group-hover:delay-500 skew-y-[20deg] group-hover:skew-y-0 shadow-md">
+                            <div class="tooltip-content bg-lime-200 flex items-center gap-1 p-2 rounded-md">
+                                <svg fill="none" viewBox="0 0 24 24" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" class="stroke-zinc-600">
+                                    <circle stroke-linejoin="round" r="9" cy="12" cx="12"></circle>
+                                    <path stroke-linejoin="round" d="M12 3C12 3 8.5 6 8.5 12C8.5 18 12 21 12 21"></path>
+                                    <path stroke-linejoin="round" d="M12 3C12 3 15.5 6 15.5 12C15.5 18 12 21 12 21"></path>
+                                    <path stroke-linejoin="round" d="M3 12H21"></path>
+                                    <path stroke-linejoin="round" d="M19.5 7.5H4.5"></path>
+                                    <path stroke-linejoin="round" d="M19.5 16.5H4.5"></path>
+                                </svg>
+                                <span>View Our Previous Event</span>
+                            </div>
+                            <div class="tooltip-arrow shadow-md bg-lime-200 absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"></div>
+                        </div>
+                        <button class="entrepix-button shadow-md flex items-center group-hover:gap-2 bg-gradient-to-br from-lime-200 to-yellow-200 p-3 rounded-full cursor-pointer duration-300" onclick="redirectToEntrepix()">
+                            <svg fill="none" viewBox="0 0 24 24" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" class="fill-zinc-600">
+                                <path stroke-linejoin="round" stroke-linecap="round" d="M15.4306 7.70172C7.55045 7.99826 3.43929 15.232 2.17021 19.3956C2.07701 19.7014 2.31139 20 2.63107 20C2.82491 20 3.0008 19.8828 3.08334 19.7074C6.04179 13.4211 12.7066 12.3152 15.514 12.5639C15.7583 12.5856 15.9333 12.7956 15.9333 13.0409V15.1247C15.9333 15.5667 16.4648 15.7913 16.7818 15.4833L20.6976 11.6784C20.8723 11.5087 20.8993 11.2378 20.7615 11.037L16.8456 5.32965C16.5677 4.92457 15.9333 5.12126 15.9333 5.61253V7.19231C15.9333 7.46845 15.7065 7.69133 15.4306 7.70172Z"></path>
+                            </svg>
+                            <span class="entrepix-text text-[0px] group-hover:text-sm duration-300">ENTREPIX 2025</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- ========== END ENTREPIX BUTTON ========== -->
+                
+                <p class="credits">Crafted with creativity by the <strong>ICI Tech Team</strong></p>
+            </div>
+        </div>
+        <div class="footer-glow"></div>
+    </footer>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>
