@@ -2828,11 +2828,22 @@ button:focus-visible {
     opacity: 0;
     transform: translateX(120%);
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    touch-action: pan-y;
+    user-select: none;
 }
 
 .republic-notification.show {
     opacity: 1;
     transform: translateX(0);
+}
+
+.republic-notification.swiping {
+    transition: none;
+}
+
+.republic-notification.swipe-out {
+    opacity: 0;
+    transform: translateX(150%);
 }
 
 .notification-content {
@@ -2870,27 +2881,38 @@ button:focus-visible {
     line-height: 1.5;
 }
 
-.notification-close {
+.republic-notification .notification-close {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(0, 0, 0, 0.1);
     font-size: 1.5rem;
-    color: #999;
+    font-weight: bold;
+    line-height: 1;
+    color: #333;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    z-index: 10001;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.notification-close:hover {
-    background: rgba(0, 0, 0, 0.1);
-    color: #333;
+.republic-notification .notification-close:hover {
+    background: rgba(0, 0, 0, 0.2);
+    color: #000;
+    transform: rotate(90deg) scale(1.1);
+}
+
+.republic-notification .notification-close:active {
+    transform: scale(0.85);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 /* ========================================
@@ -2936,24 +2958,51 @@ button:focus-visible {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .republic-notification {
-        top: 60px;
+        top: 10px;
         right: 10px;
         left: 10px;
         max-width: none;
+        z-index: 999;
+    }
+    
+    .notification-content {
+        padding: 1.2rem 2.5rem 1.2rem 1.2rem;
+    }
+    
+    .notification-icon {
+        font-size: 2.5rem;
+    }
+    
+    .notification-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .notification-content p {
+        font-size: 0.85rem;
+    }
+    
+    .republic-notification .notification-close {
+        width: 40px;
+        height: 40px;
+        font-size: 1.8rem;
+        top: 5px;
+        right: 5px;
     }
     
     .music-player {
-        bottom: 20px;
-        right: 20px;
+        bottom: 80px;
+        right: 15px;
+        z-index: 998;
     }
     
     .music-toggle {
-        width: 50px;
-        height: 50px;
+        width: 56px;
+        height: 56px;
+        box-shadow: 0 6px 20px rgba(240, 77, 66, 0.5);
     }
     
     .music-icon {
-        width: 24px;
-        height: 24px;
+        width: 26px;
+        height: 26px;
     }
 }

@@ -14,12 +14,15 @@
 window.closeNotification = function() {
     const notification = document.getElementById('republicNotification');
     if (notification) {
-        notification.classList.remove('show');
+        notification.classList.add('swipe-out');
         sessionStorage.setItem('republicNotificationSeen', 'true');
+        setTimeout(() => {
+            notification.classList.remove('show', 'swipe-out');
+        }, 500);
     }
 };
 
-// Show Republic Day notification
+// Show Republic Day notification with swipe support
 document.addEventListener('DOMContentLoaded', () => {
     const notification = document.getElementById('republicNotification');
     if (notification) {
@@ -34,6 +37,46 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }, 10000);
             }, 1500);
+
+            // Add swipe gesture support
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+
+            notification.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+                notification.classList.add('swiping');
+            }, { passive: true });
+
+            notification.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX;
+                const diff = currentX - startX;
+                
+                // Only allow swipe right or left
+                if (Math.abs(diff) > 10) {
+                    notification.style.transform = `translateX(${diff}px)`;
+                    notification.style.opacity = Math.max(0.3, 1 - Math.abs(diff) / 300);
+                }
+            }, { passive: true });
+
+            notification.addEventListener('touchend', () => {
+                if (!isDragging) return;
+                isDragging = false;
+                notification.classList.remove('swiping');
+                
+                const diff = currentX - startX;
+                
+                // If swiped more than 100px in either direction, close it
+                if (Math.abs(diff) > 100) {
+                    window.closeNotification();
+                } else {
+                    // Reset position
+                    notification.style.transform = '';
+                    notification.style.opacity = '';
+                }
+            });
         }
     }
 });
@@ -54,8 +97,15 @@ window.toggleMusic = function() {
         if (pauseIcon) pauseIcon.style.display = 'none';
         musicPlaying = false;
     } else {
+        // Restart from beginning if at the end
+        if (bgMusic.currentTime >= bgMusic.duration) {
+            bgMusic.currentTime = 0;
+        }
         bgMusic.play().catch(err => {
             console.log('Audio play failed:', err);
+            // Show play icon if auto-play blocked
+            if (playIcon) playIcon.style.display = 'block';
+            if (pauseIcon) pauseIcon.style.display = 'none';
         });
         if (playIcon) playIcon.style.display = 'none';
         if (pauseIcon) pauseIcon.style.display = 'block';
@@ -70,12 +120,47 @@ document.addEventListener('DOMContentLoaded', () => {
     playIcon = document.querySelector('.play-icon');
     pauseIcon = document.querySelector('.pause-icon');
     
-    // Auto-play music after a short delay
-    setTimeout(() => {
-        if (!musicPlaying && bgMusic) {
-            window.toggleMusic();
-        }
-    }, 2000);
+    if (bgMusic) {
+        // Always start from beginning on page load
+        bgMusic.currentTime = 0;
+        bgMusic.volume = 0.7;
+        
+        // Try multiple methods to auto-play
+        const attemptAutoPlay = () => {
+            bgMusic.play().then(() => {
+                musicPlaying = true;
+                if (playIcon) playIcon.style.display = 'none';
+                if (pauseIcon) pauseIcon.style.display = 'block';
+            }).catch(err => {
+                console.log('Auto-play prevented, waiting for user interaction');
+                // Show play button
+                if (playIcon) playIcon.style.display = 'block';
+                if (pauseIcon) pauseIcon.style.display = 'none';
+                
+                // Try again on first user interaction
+                const autoPlayOnInteraction = () => {
+                    if (!musicPlaying) {
+                        window.toggleMusic();
+                    }
+                    document.removeEventListener('click', autoPlayOnInteraction);
+                    document.removeEventListener('touchstart', autoPlayOnInteraction);
+                };
+                document.addEventListener('click', autoPlayOnInteraction, { once: true });
+                document.addEventListener('touchstart', autoPlayOnInteraction, { once: true });
+            });
+        };
+        
+        // Attempt auto-play after short delay
+        setTimeout(attemptAutoPlay, 1000);
+        
+        // Handle music ending - loop back to start
+        bgMusic.addEventListener('ended', () => {
+            bgMusic.currentTime = 0;
+            if (musicPlaying) {
+                bgMusic.play();
+            }
+        });
+    }
 });
 
 /**
