@@ -2854,12 +2854,20 @@ button:focus-visible {
     background: linear-gradient(
         180deg,
         #FF9933 0%,
-        #FFB366 15%,
-        #FFE4CC 25%,
-        #FFFFFF 40%,
-        #FFFFFF 60%,
-        #E8F5E9 75%,
-        #A5D6A7 85%,
+        #FFAB4D 8%,
+        #FFBD66 14%,
+        #FFD08F 20%,
+        #FFE4B8 26%,
+        #FFF2DB 32%,
+        #FFFAF0 38%,
+        #FFFFFF 44%,
+        #FFFFFF 56%,
+        #F5FFF5 62%,
+        #E0F2E0 68%,
+        #C8E6C8 74%,
+        #8CD98C 80%,
+        #5AC45A 86%,
+        #2AAD2A 92%,
         #138808 100%
     );
     animation: skyPulse 8s ease-in-out infinite;
