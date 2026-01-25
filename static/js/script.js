@@ -8,6 +8,41 @@
 // ========================================
 
 /**
+ * REPUBLIC DAY INTRO ANIMATION (REMOVE AFTER JAN 26)
+ * Set to false to disable the intro animation
+ */
+const SHOW_REPUBLIC_DAY_INTRO = true;
+
+// Initialize Republic Day Intro
+(function initRepublicDayIntro() {
+    if (!SHOW_REPUBLIC_DAY_INTRO) {
+        const intro = document.getElementById('republicIntro');
+        if (intro) intro.style.display = 'none';
+        return;
+    }
+    
+    // Check if user has seen it this session
+    const introSeen = sessionStorage.getItem('republicIntroSeen');
+    if (introSeen === 'true') {
+        const intro = document.getElementById('republicIntro');
+        if (intro) intro.style.display = 'none';
+    }
+})();
+
+function enterSite() {
+    const intro = document.getElementById('republicIntro');
+    if (intro) {
+        intro.classList.add('hidden');
+        sessionStorage.setItem('republicIntroSeen', 'true');
+        
+        // Remove from DOM after animation
+        setTimeout(() => {
+            intro.style.display = 'none';
+        }, 800);
+    }
+}
+
+/**
  * PAGE LOADER (REMOVABLE)
  * To remove: Comment out or delete this entire section
  */
