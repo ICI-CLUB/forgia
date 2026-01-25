@@ -8,6 +8,114 @@
 // ========================================
 
 /**
+ * REPUBLIC DAY BACKGROUND MUSIC (REMOVABLE)
+ * To remove: Comment out or delete this entire section
+ */
+let musicPlaying = false;
+const republicMusic = document.getElementById('republicDayMusic');
+const playStatusCheckbox = document.getElementById('playStatus');
+const progressBar = document.getElementById('musicProgressBar');
+const currentTimeSpan = document.querySelector('.music-time-current');
+const totalTimeSpan = document.querySelector('.music-time-total');
+
+// Format time helper
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+// Auto-play music when page loads with multiple attempts
+function startMusic() {
+    if (!republicMusic) return;
+    
+    republicMusic.volume = 0.7; // Set volume to 70%
+    republicMusic.play().then(() => {
+        musicPlaying = true;
+        if (playStatusCheckbox) playStatusCheckbox.checked = true;
+    }).catch((error) => {
+        // Auto-play was prevented, try again on first user interaction
+        console.log('Auto-play prevented, will try on first interaction');
+        musicPlaying = false;
+        if (playStatusCheckbox) playStatusCheckbox.checked = false;
+        
+        // Try to play on any user interaction
+        document.addEventListener('click', function playOnClick() {
+            republicMusic.play().then(() => {
+                musicPlaying = true;
+                if (playStatusCheckbox) playStatusCheckbox.checked = true;
+                document.removeEventListener('click', playOnClick);
+            }).catch(e => console.log('Playback failed:', e));
+        }, { once: true });
+    });
+}
+
+// Start music immediately
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startMusic);
+} else {
+    startMusic();
+}
+
+// Also try on window load
+window.addEventListener('load', startMusic);
+
+// Update progress bar and time
+if (republicMusic) {
+    republicMusic.addEventListener('loadedmetadata', () => {
+        if (totalTimeSpan) totalTimeSpan.textContent = formatTime(republicMusic.duration);
+        if (progressBar) progressBar.max = republicMusic.duration;
+    });
+    
+    republicMusic.addEventListener('timeupdate', () => {
+        if (currentTimeSpan) currentTimeSpan.textContent = formatTime(republicMusic.currentTime);
+        if (progressBar) progressBar.value = republicMusic.currentTime;
+    });
+}
+
+// Progress bar seek
+if (progressBar) {
+    progressBar.addEventListener('input', (e) => {
+        if (republicMusic) {
+            republicMusic.currentTime = e.target.value;
+        }
+    });
+}
+
+// Play/Pause toggle
+if (playStatusCheckbox) {
+    playStatusCheckbox.addEventListener('change', (e) => {
+        if (!republicMusic) return;
+        
+        if (e.target.checked) {
+            republicMusic.play().then(() => {
+                musicPlaying = true;
+            }).catch(error => {
+                console.log('Playback failed:', error);
+                e.target.checked = false;
+            });
+        } else {
+            republicMusic.pause();
+            musicPlaying = false;
+        }
+    });
+}
+
+// Skip forward (10 seconds)
+function skipForward() {
+    if (republicMusic) {
+        republicMusic.currentTime = Math.min(republicMusic.currentTime + 10, republicMusic.duration);
+    }
+}
+
+// Skip backward (10 seconds)
+function skipBackward() {
+    if (republicMusic) {
+        republicMusic.currentTime = Math.max(republicMusic.currentTime - 10, 0);
+    }
+}
+
+/**
  * PAGE LOADER (REMOVABLE)
  * To remove: Comment out or delete this entire section
  */
@@ -24,7 +132,7 @@ window.addEventListener('load', () => {
 });
 
 /**
- * DEADLINE NOTIFICATION (REMOVE AFTER JAN 28)
+ * DEADLINE NOTIFICATION (REMOVE AFTER JAN 29)
  * To remove: Comment out or delete this entire section
  */
 function showDeadlineNotification() {
@@ -132,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initButtonCountdown(); // Button countdown timer
     
     // Initialize removable features
-    showDeadlineNotification(); // REMOVABLE: Comment out after Jan 28
+    showDeadlineNotification(); // REMOVABLE: Comment out after Jan 29
     addLoadersToRegistrationButtons(); // REMOVABLE: Comment out if not needed
 });
 

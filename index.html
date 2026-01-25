@@ -25,19 +25,174 @@
     </div>
     <!-- ========== END PAGE LOADER ========== -->
 
-    <!-- ========== REGISTRATION DEADLINE NOTIFICATION (REMOVE AFTER JAN 28) ========== -->
+    <!-- ========== REGISTRATION DEADLINE NOTIFICATION (REMOVE AFTER JAN 29) ========== -->
     <!-- To remove after deadline: Delete this entire section or comment it out -->
     <div class="deadline-notification" id="deadlineNotification">
         <div class="notification-content">
             <div class="notification-icon">⌛</div>
             <div class="notification-text">
                 <h4>Hurry Up!</h4>
-                <p>Registration closes on <strong>January 28, 2026</strong>. Secure your spot now!</p>
+                <p>Registration closes on <strong>January 29, 2026 by 9 PM</strong>. Secure your spot now!</p>
             </div>
             <button class="notification-close" onclick="closeNotification()">×</button>
         </div>
     </div>
     <!-- ========== END DEADLINE NOTIFICATION ========== -->
+
+    <!-- ========== REPUBLIC DAY BACKGROUND MUSIC ========== -->
+    <audio id="republicDayMusic" autoplay loop preload="auto">
+        <source src="static/Images/Music/A.R.__Rahman_-_Vande_Mataram_[1997]_Thai_Mannai_Vanakkam__Tamil_(48k).mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- Animated Music Player -->
+    <div class="music-player-container" id="musicPlayerContainer">
+        <div class="music-planet-wrapper">
+            <svg width="128" height="128" viewBox="0 0 128 128" class="music-planet-svg">
+                <!-- Saffron band -->
+                <rect width="128" height="42.67" fill="#FF9933"></rect>
+                <!-- White band -->
+                <rect y="42.67" width="128" height="42.67" fill="#FFFFFF"></rect>
+                <!-- Green band -->
+                <rect y="85.34" width="128" height="42.66" fill="#138808"></rect>
+                <!-- Ashoka Chakra -->
+                <circle cx="64" cy="64" r="20" fill="none" stroke="#000080" stroke-width="2"></circle>
+                <circle cx="64" cy="64" r="3" fill="#000080"></circle>
+                <!-- 24 spokes -->
+                <g transform="translate(64, 64)">
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(15)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(30)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(45)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(60)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(75)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(90)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(105)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(120)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(135)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(150)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(165)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(180)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(195)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(210)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(225)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(240)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(255)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(270)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(285)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(300)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(315)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(330)"></line>
+                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(345)"></line>
+                </g>
+            </svg>
+            <div class="music-planet-moon"></div>
+        </div>
+        <div class="music-player-card">
+            <div class="music-player-header">
+                <div class="music-player-planet-small">
+                    <svg width="96" height="96" viewBox="0 0 128 128" class="music-planet-svg-small">
+                        <!-- Saffron band -->
+                        <rect width="128" height="42.67" fill="#FF9933"></rect>
+                        <!-- White band -->
+                        <rect y="42.67" width="128" height="42.67" fill="#FFFFFF"></rect>
+                        <!-- Green band -->
+                        <rect y="85.34" width="128" height="42.66" fill="#138808"></rect>
+                        <!-- Ashoka Chakra -->
+                        <circle cx="64" cy="64" r="20" fill="none" stroke="#000080" stroke-width="2"></circle>
+                        <circle cx="64" cy="64" r="3" fill="#000080"></circle>
+                        <!-- 24 spokes -->
+                        <g transform="translate(64, 64)">
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(15)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(30)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(45)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(60)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(75)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(90)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(105)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(120)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(135)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(150)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(165)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(180)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(195)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(210)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(225)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(240)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(255)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(270)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(285)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(300)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(315)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(330)"></line>
+                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(345)"></line>
+                        </g>
+                    </svg>
+                    <div class="music-planet-moon-small"></div>
+                </div>
+                <div class="music-info">
+                    <p class="music-title">Vande Mataram</p>
+                    <p class="music-artist">A.R. Rahman</p>
+                </div>
+            </div>
+            <div class="music-progress-wrapper">
+                <span class="music-time-current">0:00</span>
+                <input type="range" min="0" max="366" value="0" class="music-progress-bar" id="musicProgressBar"/>
+                <span class="music-time-total">6:06</span>
+            </div>
+            <div class="music-controls">
+                <label class="music-control-btn music-shuffle-btn">
+                    <input type="checkbox" id="playMode" class="music-checkbox"/>
+                    <svg class="music-icon-repeat" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="17 1 21 5 17 9"></polyline>
+                        <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                        <polyline points="7 23 3 19 7 15"></polyline>
+                        <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                    </svg>
+                    <svg class="music-icon-shuffle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 3 21 3 21 8"></polyline>
+                        <line x1="4" y1="20" x2="21" y2="3"></line>
+                        <polyline points="21 16 21 21 16 21"></polyline>
+                        <line x1="15" y1="15" x2="21" y2="21"></line>
+                        <line x1="4" y1="4" x2="9" y2="9"></line>
+                    </svg>
+                </label>
+                <div class="music-control-btn" onclick="skipBackward()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                        <line x1="5" y1="19" x2="5" y2="5"></line>
+                    </svg>
+                </div>
+                <label class="music-control-btn music-play-btn">
+                    <input type="checkbox" id="playStatus" class="music-checkbox" checked/>
+                    <svg class="music-icon-play" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    <svg class="music-icon-pause" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="6" y="4" width="4" height="16"></rect>
+                        <rect x="14" y="4" width="4" height="16"></rect>
+                    </svg>
+                </label>
+                <div class="music-control-btn" onclick="skipForward()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                        <line x1="19" y1="5" x2="19" y2="19"></line>
+                    </svg>
+                </div>
+                <div class="music-control-btn music-playlist-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ========== END REPUBLIC DAY MUSIC ========== -->
 
     <!-- Floating Navigation -->
     <nav class="navbar" id="navbar">
@@ -224,7 +379,7 @@
             <div class="dates-grid">
                 <div class="date-card">
                     <div class="date-marker">
-                        <span class="date-day">28</span>
+                        <span class="date-day">29</span>
                         <span class="date-month">JAN</span>
                     </div>
                     <div class="date-content">
@@ -234,7 +389,7 @@
                 </div>
                 <div class="date-card">
                     <div class="date-marker">
-                        <span class="date-day">29</span>
+                        <span class="date-day">30</span>
                         <span class="date-month">JAN</span>
                     </div>
                     <div class="date-content">
@@ -695,7 +850,7 @@
                             <span class="detail-icon">📅</span>
                             <div class="detail-text">
                                 <strong>Deadline</strong>
-                                <span>January 28, 2026</span>
+                                <span>January 29, 2026 by 9 PM</span>
                             </div>
                         </div>
                         <div class="detail-item">
