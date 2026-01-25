@@ -39,6 +39,26 @@
     </div>
     <!-- ========== END DEADLINE NOTIFICATION ========== -->
 
+    <!-- ========== REPUBLIC DAY WISHES POPUP ========== -->
+    <div class="republic-day-popup" id="republicDayPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closeRepublicPopup()">&times;</button>
+            <div class="popup-flag">
+                <div class="flag-stripe saffron"></div>
+                <div class="flag-stripe white">
+                    <div class="ashoka-chakra-small"></div>
+                </div>
+                <div class="flag-stripe green"></div>
+            </div>
+            <h2 class="popup-title">Happy 77<sup>th</sup> Republic Day! 🇮🇳</h2>
+            <p class="popup-message">From Team <strong>FORGIA 2026</strong></p>
+            <p class="popup-subtitle">Let us honor the Constitution and the vision that shapes our nation.</p>
+            <div class="popup-divider"></div>
+            <p class="popup-tagline">Forge Ideas. Build Impact.</p>
+        </div>
+    </div>
+    <!-- ========== END REPUBLIC DAY POPUP ========== -->
+
     <!-- ========== REPUBLIC DAY BACKGROUND MUSIC ========== -->
     <audio id="republicDayMusic" autoplay loop preload="auto">
         <source src="static/Images/Music/A.R.__Rahman_-_Vande_Mataram_[1997]_Thai_Mannai_Vanakkam__Tamil_(48k).mp3" type="audio/mpeg">
@@ -137,12 +157,12 @@
             </div>
             <div class="music-progress-wrapper">
                 <span class="music-time-current">0:00</span>
-                <input type="range" min="0" max="366" value="0" class="music-progress-bar" id="musicProgressBar"/>
+                <input type="range" min="0" max="366" value="0" class="music-progress-bar" id="musicProgressBar" aria-label="Music progress"/>
                 <span class="music-time-total">6:06</span>
             </div>
             <div class="music-controls">
                 <label class="music-control-btn music-shuffle-btn">
-                    <input type="checkbox" id="playMode" class="music-checkbox"/>
+                    <input type="checkbox" id="playMode" class="music-checkbox" aria-label="Toggle shuffle mode"/>
                     <svg class="music-icon-repeat" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="17 1 21 5 17 9"></polyline>
                         <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
@@ -164,7 +184,7 @@
                     </svg>
                 </div>
                 <label class="music-control-btn music-play-btn">
-                    <input type="checkbox" id="playStatus" class="music-checkbox" checked/>
+                    <input type="checkbox" id="playStatus" class="music-checkbox" checked aria-label="Play or pause music"/>
                     <svg class="music-icon-play" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="5 3 19 12 5 21 5 3"></polygon>
                     </svg>

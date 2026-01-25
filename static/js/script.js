@@ -132,6 +132,37 @@ window.addEventListener('load', () => {
 });
 
 /**
+ * REPUBLIC DAY WISHES POPUP (REMOVABLE AFTER JAN 26)
+ * To remove: Comment out or delete this entire section
+ */
+function showRepublicDayPopup() {
+    const popup = document.getElementById('republicDayPopup');
+    if (!popup) return;
+    
+    // Check if user has closed it before in this session
+    const popupClosed = sessionStorage.getItem('republicPopupClosed');
+    if (popupClosed === 'true') return;
+    
+    // Show popup after 2 seconds
+    setTimeout(() => {
+        popup.classList.add('show');
+        
+        // Auto-hide after 8 seconds
+        setTimeout(() => {
+            closeRepublicPopup();
+        }, 8000);
+    }, 2000);
+}
+
+function closeRepublicPopup() {
+    const popup = document.getElementById('republicDayPopup');
+    if (popup) {
+        popup.classList.remove('show');
+        sessionStorage.setItem('republicPopupClosed', 'true');
+    }
+}
+
+/**
  * DEADLINE NOTIFICATION (REMOVE AFTER JAN 29)
  * To remove: Comment out or delete this entire section
  */
@@ -241,6 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize removable features
     showDeadlineNotification(); // REMOVABLE: Comment out after Jan 29
+    showRepublicDayPopup(); // REMOVABLE: Comment out after Jan 26
     addLoadersToRegistrationButtons(); // REMOVABLE: Comment out if not needed
 });
 
