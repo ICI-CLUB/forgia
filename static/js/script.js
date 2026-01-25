@@ -8,39 +8,75 @@
 // ========================================
 
 /**
- * REPUBLIC DAY INTRO ANIMATION (REMOVE AFTER JAN 26)
- * Set to false to disable the intro animation
+ * REPUBLIC DAY NOTIFICATION
  */
-const SHOW_REPUBLIC_DAY_INTRO = true;
-
-// Initialize Republic Day Intro
-(function initRepublicDayIntro() {
-    if (!SHOW_REPUBLIC_DAY_INTRO) {
-        const intro = document.getElementById('republicIntro');
-        if (intro) intro.style.display = 'none';
-        return;
+// Close notification function - must be global for onclick to work
+window.closeNotification = function() {
+    const notification = document.getElementById('republicNotification');
+    if (notification) {
+        notification.classList.remove('show');
+        sessionStorage.setItem('republicNotificationSeen', 'true');
     }
+};
+
+// Show Republic Day notification
+document.addEventListener('DOMContentLoaded', () => {
+    const notification = document.getElementById('republicNotification');
+    if (notification) {
+        const notificationSeen = sessionStorage.getItem('republicNotificationSeen');
+        if (notificationSeen !== 'true') {
+            setTimeout(() => {
+                notification.classList.add('show');
+                // Auto-hide after 10 seconds
+                setTimeout(() => {
+                    if (notification.classList.contains('show')) {
+                        window.closeNotification();
+                    }
+                }, 10000);
+            }, 1500);
+        }
+    }
+});
+
+/**
+ * BACKGROUND MUSIC PLAYER
+ */
+let musicPlaying = false;
+let bgMusic, musicToggle, playIcon, pauseIcon;
+
+// Toggle music function - must be global for onclick to work
+window.toggleMusic = function() {
+    if (!bgMusic) return;
     
-    // Check if user has seen it this session
-    const introSeen = sessionStorage.getItem('republicIntroSeen');
-    if (introSeen === 'true') {
-        const intro = document.getElementById('republicIntro');
-        if (intro) intro.style.display = 'none';
+    if (musicPlaying) {
+        bgMusic.pause();
+        if (playIcon) playIcon.style.display = 'block';
+        if (pauseIcon) pauseIcon.style.display = 'none';
+        musicPlaying = false;
+    } else {
+        bgMusic.play().catch(err => {
+            console.log('Audio play failed:', err);
+        });
+        if (playIcon) playIcon.style.display = 'none';
+        if (pauseIcon) pauseIcon.style.display = 'block';
+        musicPlaying = true;
     }
-})();
+};
 
-function enterSite() {
-    const intro = document.getElementById('republicIntro');
-    if (intro) {
-        intro.classList.add('hidden');
-        sessionStorage.setItem('republicIntroSeen', 'true');
-        
-        // Remove from DOM after animation
-        setTimeout(() => {
-            intro.style.display = 'none';
-        }, 800);
-    }
-}
+// Wait for DOM to load before initializing music player
+document.addEventListener('DOMContentLoaded', () => {
+    bgMusic = document.getElementById('bgMusic');
+    musicToggle = document.getElementById('musicToggle');
+    playIcon = document.querySelector('.play-icon');
+    pauseIcon = document.querySelector('.pause-icon');
+    
+    // Auto-play music after a short delay
+    setTimeout(() => {
+        if (!musicPlaying && bgMusic) {
+            window.toggleMusic();
+        }
+    }, 2000);
+});
 
 /**
  * PAGE LOADER (REMOVABLE)

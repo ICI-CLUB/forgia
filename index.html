@@ -11,10 +11,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- ========== REPUBLIC DAY INTRO ANIMATION (REMOVE AFTER JAN 26) ========== -->
-    <!-- To disable: Set SHOW_REPUBLIC_DAY_INTRO = false in script.js -->
-    <!-- To remove completely: Delete this entire section -->
-    <div class="republic-intro" id="republicIntro">
+    <!-- ========== REPUBLIC DAY NOTIFICATION ========== -->
+    <div class="republic-notification" id="republicNotification">
+        <div class="notification-content">
+            <div class="notification-icon">🇮🇳</div>
+            <h3>Happy 77<sup>th</sup> Republic Day!</h3>
+            <p>Let us honor the Constitution and the vision that shapes our nation.</p>
+            <button class="notification-close" onclick="closeNotification()">✕</button>
+        </div>
+    </div>
+
+    <!-- ========== BACKGROUND MUSIC PLAYER ========== -->
+    <div class="music-player" id="musicPlayer">
+        <audio id="bgMusic" loop>
+            <source src="static/Music/videoplayback.m4a" type="audio/mp4">
+        </audio>
+        <button class="music-toggle" id="musicToggle" onclick="toggleMusic()" title="Play/Pause Music">
+            <svg class="music-icon play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg class="music-icon pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+            </svg>
+        </button>
+    </div>
+    <!-- ========== OLD INTRO REMOVED ========== -->
+    <div style="display:none;" id="republicIntro">
         <!-- Background Elements -->
         <div class="intro-background">
             <div class="sky-gradient"></div>
@@ -149,10 +171,8 @@
             </button>
         </div>
         
-        <!-- Skip Button -->
-        <button class="skip-intro-btn" onclick="enterSite()">Skip</button>
     </div>
-    <!-- ========== END REPUBLIC DAY INTRO ANIMATION ========== -->
+    <!-- ========== END OLD INTRO ========== -->
 
     <!-- ========== PAGE LOADER (REMOVABLE) ========== -->
     <!-- To remove: Delete this entire section from here to the closing comment -->
