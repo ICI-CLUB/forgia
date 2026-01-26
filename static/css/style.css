@@ -2185,6 +2185,20 @@ h1, h2, h3, h4, h5, h6 {
     gap: var(--space-lg);
 }
 
+.quality-guidance {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    font-style: italic;
+    margin-top: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--gray-50);
+    border-left: 3px solid var(--primary);
+    border-radius: var(--radius-md);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .theme-card {
     position: relative;
     padding: var(--space-2xl);
@@ -2200,11 +2214,16 @@ h1, h2, h3, h4, h5, h6 {
 .theme-card:hover {
     border-color: var(--primary);
     transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
 .theme-card:hover .theme-glow {
     opacity: 1;
+}
+
+.theme-card:hover .theme-sdg {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .theme-glow {
@@ -2227,6 +2246,16 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     color: var(--gray-800);
     line-height: 1.4;
+    margin-bottom: var(--space-sm);
+}
+
+.theme-sdg {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    margin-top: var(--space-xs);
+    opacity: 0.7;
+    transform: translateY(5px);
+    transition: all var(--transition-base);
 }
 
 .theme-card[data-theme="1"]:hover { border-color: #14B8A6; }
@@ -3282,6 +3311,12 @@ h1, h2, h3, h4, h5, h6 {
     
     .theme-card {
         padding: var(--space-lg);
+    }
+    
+    .quality-guidance {
+        font-size: 0.8rem;
+        padding: var(--space-xs) var(--space-sm);
+        margin-top: var(--space-sm);
     }
     
     .register-wrapper {
