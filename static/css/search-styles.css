@@ -1,0 +1,107 @@
+/* Theme Search Enhancements */
+
+.themes-section {
+    padding: var(--space-5xl) 0;
+    background: linear-gradient(135deg, #fff9f0 0%, #ffffff 50%, #f0f9ff 100%);
+}
+
+.themes-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
+}
+
+.themes-header-left {
+    flex: 1;
+}
+
+.themes-header-right {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.problem-theme-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b5342;
+    background: #f2e2c4;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+    margin-left: 4px;
+}
+
+.problem-number-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.no-results {
+    text-align: center;
+    padding: var(--space-3xl);
+    color: var(--gray-600);
+}
+
+.no-results p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .themes-header-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-lg);
+    }
+    
+    .themes-header-right {
+        padding-top: 0;
+    }
+    
+    .theme-search-container {
+        justify-content: center;
+    }
+    
+    #poda {
+        transform: scale(0.85);
+    }
+    
+    .input {
+        width: 260px !important;
+        height: 50px !important;
+        font-size: 13px !important;
+        padding-inline: 48px !important;
+    }
+    
+    .problem-theme-badge {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+    
+    .problem-number-wrapper {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .themes-header-wrapper {
+        gap: var(--space-md);
+    }
+    
+    #poda {
+        transform: scale(0.75);
+    }
+    
+    .input {
+        width: 240px !important;
+        height: 48px !important;
+        font-size: 12px !important;
+    }
+}

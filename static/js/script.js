@@ -3,6 +3,344 @@
  * A Makeathon × Project Expo Experience
  */
 
+// ========== THEME PROBLEM STATEMENTS MODAL ==========
+const themeProblems = {
+    1: {
+        title: "Smart & Sustainable Living",
+        problems: [
+            {
+                title: "Smart Waste Bin Monitor",
+                context: "Urban households struggle with irregular waste collection, leading to overflows and poor segregation.",
+                solution: "Build an IoT bin using ESP32, ultrasonic sensor for fill level, and color sensor for segregation type, linked to a web dashboard for collection alerts.",
+                prototype: "Working bin model alerting via app when 80% full, showing segregation stats on dashboard.",
+                type: "Hardware + Software"
+            },
+            {
+                title: "Energy-Saving Room Controller",
+                context: "High electricity bills in homes from forgotten lights and fans waste energy amid rising costs.",
+                solution: "Create ESP32 with PIR motion sensor and relay to auto-control lights/fans, plus a simple app for manual override and usage logs.",
+                prototype: "Demo room setup toggling appliances on motion, showing daily savings on phone dashboard.",
+                type: "Hardware + Software"
+            },
+            {
+                title: "Water Usage Tracker",
+                context: "Households overuse water due to leaks and inefficient taps, straining urban supplies.",
+                solution: "Develop flow sensor on ESP32 to monitor tap usage, buzzer for leaks, and dashboard for consumption graphs.",
+                prototype: "Simulated tap detecting flow anomalies, app displaying hourly usage with alerts.",
+                type: "Hardware + Software"
+            },
+            {
+                title: "Smart Recycling Incentive System",
+                context: "Low recycling rates in communities due to lack of motivation and tracking.",
+                solution: "Build scale with load cell on Arduino, QR scanner for item ID, app awarding points redeemable via dashboard.",
+                prototype: "Weigh and scan recyclables, update user points on web leaderboard.",
+                type: "Hardware + Software"
+            },
+            {
+                title: "Home Air Quality Alert",
+                context: "Indoor pollution from cooking affects family health in dense urban homes.",
+                solution: "Use MQ135 gas sensor and DHT22 on ESP32 to measure AQI, fan relay trigger, and mobile alerts via dashboard.",
+                prototype: "Sensor detecting smoke, auto-activating fan, real-time AQI on app.",
+                type: "Hardware + Software"
+            },
+            {
+                title: "Automated Compost Monitor",
+                context: "Backyard composting fails from improper moisture and temperature control.",
+                solution: "ESP32 with soil moisture and temp sensors, servo for aeration, simple web log for compost status.",
+                prototype: "Bin adjusting moisture levels, dashboard showing readiness progress.",
+                type: "Hardware + Software"
+            },
+            {
+                title: "Leak Detection for Pipes",
+                context: "Undetected pipe leaks cause water wastage and structural damage in apartments.",
+                solution: "Vibration sensor and water detector on ESP32, buzzer alert, app notification with location map.",
+                prototype: "Simulate leak triggering alerts on phone dashboard.",
+                type: "Hardware + Software"
+            },
+            {
+                title: "Smart Fridge Inventory",
+                context: "Food wastage from forgotten items in household fridges burdens families.",
+                solution: "ESP32 with camera module for item detection via basic image recog, app inventory list with expiry alerts.",
+                prototype: "Scan fridge contents, list items on dashboard with reminders.",
+                type: "Hardware + Software"
+            },
+            {
+                title: "Neighborhood Noise Monitor",
+                context: "Noise pollution disrupts sleep in crowded residential areas.",
+                solution: "Sound sensor on ESP32 measuring dB levels, LED indicators, community dashboard for complaints.",
+                prototype: "Alert at 70dB threshold, log peaks on web map.",
+                type: "Hardware + Software"
+            },
+            {
+                title: "EV Charging Spot Finder",
+                context: "Limited public EV spots cause range anxiety in sustainable urban mobility.",
+                solution: "ESP32 with current sensor for availability, Bluetooth beacon, app map showing nearest free spots.",
+                prototype: "Simulate spots, app updating status in real-time.",
+                type: "Hardware + Software"
+            },
+            {
+                title: "Plastic Waste Sorter",
+                context: "Mixed plastic waste hinders recycling in community bins.",
+                solution: "IR sensors and servo sorter on Arduino, app for sorted volume stats.",
+                prototype: "Drop plastics, auto-sort by type, dashboard report.",
+                type: "Hardware + Software"
+            },
+            {
+                title: "Sustainable Lighting System",
+                context: "Overlit common areas waste power in apartments.",
+                solution: "LDR and PIR on ESP32 controlling LED strips, group dashboard for schedules.",
+                prototype: "Lights dimming on no motion, usage chart on app.",
+                type: "Hardware + Software"
+            }
+        ]
+    },
+    2: {
+        title: "Green Technology & Environmental Monitoring",
+        problems: [
+            {title: "Portable Air Quality Station", context: "Campus and city air pollution lacks real-time local monitoring.", solution: "ESP32 with MQ135 and DHT22, solar panel power, web dashboard for AQI trends.", prototype: "Handheld unit displaying AQI, uploading to public map.", type: "Hardware + Software"},
+            {title: "Soil Moisture Alert for Gardens", context: "Overwatering harms plants in community green spaces.", solution: "Soil sensor and pump relay on ESP32, app for irrigation scheduling.", prototype: "Auto-water on dry soil, moisture graph on dashboard.", type: "Hardware + Software"},
+            {title: "Water Quality Tester", context: "Contaminated campus water sources risk health.", solution: "pH and turbidity sensors on Arduino, buzzer for unsafe levels, mobile log.", prototype: "Test sample, show safe/unsafe on app with history.", type: "Hardware + Software"},
+            {title: "Solar Panel Efficiency Tracker", context: "Rooftop solar setups underperform without monitoring.", solution: "Current/voltage sensors on ESP32, dashboard predicting output.", prototype: "Simulate panel, display efficiency and faults.", type: "Hardware + Software"},
+            {title: "Rainwater Harvesting Monitor", context: "Inefficient rooftop collection leads to wastage.", solution: "Ultrasonic level sensor in tank, overflow alert via app.", prototype: "Tank model filling, app notifying storage levels.", type: "Hardware + Software"},
+            {title: "CO₂ Level Detector for Greenhouses", context: "Poor ventilation spikes CO2 in small farms.", solution: "MH-Z19 CO2 sensor on ESP32, fan auto-trigger, ventilation dashboard.", prototype: "Detect high CO2, activate fan, log on web.", type: "Hardware + Software"},
+            {title: "Wind Speed Alert System", context: "Farmers need early storm warnings for crop protection.", solution: "Anemometer on Arduino, threshold alerts to phone.", prototype: "Fan-simulated wind, speed display and SMS alert.", type: "Hardware + Software"},
+            {title: "Microplastic Water Detector", context: "River pollution undetected in local sources.", solution: "Basic turbidity/filter sensor on ESP32, count estimator app.", prototype: "Test dirty water, quantify particles on dashboard.", type: "Hardware + Software"},
+            {title: "Battery Health Monitor for Renewables", context: "Solar batteries degrade without tracking.", solution: "Voltage/current sensors, ESP32 predicting lifespan via simple rules.", prototype: "Charge/discharge cycle demo, health % on app.", type: "Hardware + Software"},
+            {title: "Forest Fire Risk Scanner", context: "Dry areas prone to fires lack early detection.", solution: "Flame sensor and temp on ESP32 drone-mount sim, alert map.", prototype: "Heat source trigger, location ping on dashboard.", type: "Hardware + Software"},
+            {title: "Humidity-Based Ventilation", context: "Mold growth in storage from high humidity.", solution: "DHT22 on ESP32 controlling exhaust fan, trend logs.", prototype: "High humidity auto-vent, graph on web.", type: "Hardware + Software"},
+            {title: "UV Index Monitor", context: "Outdoor workers exposed without warnings.", solution: "UV sensor on Arduino, app sunscreen reminders.", prototype: "Sunlight sim, index alert on phone.", type: "Hardware + Software"}
+        ]
+    },
+    3: {
+        title: "Smart Infrastructure & Built Environment",
+        problems: [
+            {title: "Smart Parking Spot Detector", context: "Campus parking chaos wastes time and fuel.", solution: "IR sensors per spot on ESP32 hub, app showing free slots map.", prototype: "4-spot model, real-time availability on dashboard.", type: "Hardware + Software"},
+            {title: "Bridge Load Monitor", context: "Pedestrian bridges overload risks unnoticed.", solution: "Load cells under model bridge, ESP32 alert over limit.", prototype: "Add weights, buzzer and app warning at 80kg.", type: "Hardware + Software"},
+            {title: "Street Light Automator", context: "Wasted power from always-on street lights.", solution: "LDR/PIR on ESP32 per light, group control dashboard.", prototype: "Light model dimming on dark/no motion.", type: "Hardware + Software"},
+            {title: "Building Vibration Detector", context: "Earthquake-prone structures need early alerts.", solution: "Accelerometer on ESP32, threshold SMS to occupants.", prototype: "Shake sim, severity levels on app.", type: "Hardware + Software"},
+            {title: "Traffic Flow Counter", context: "Road congestion unmanaged at campus gates.", solution: "IR beam break counters on Arduino, density dashboard.", prototype: "Vehicle sim passing, count/peak hours graph.", type: "Hardware + Software"},
+            {title: "Elevator Overload Preventer", context: "Overcrowded lifts risk safety.", solution: "Load cells in floor model, door lock relay via ESP32.", prototype: "Add weights, prevent 'door close' over limit.", type: "Hardware + Software"},
+            {title: "Flood Level Warner", context: "Low-lying areas flood without warning.", solution: "Ultrasonic water level on ESP32 pole, siren and app map.", prototype: "Pour water, rising alerts on dashboard.", type: "Hardware + Software"},
+            {title: "Infrastructure Crack Detector", context: "Building cracks worsen undetected.", solution: "Strain gauge on Arduino, progressive alert system.", prototype: "Flex model, crack width log on web.", type: "Hardware + Software"},
+            {title: "Smart Water Pump Controller", context: "Overhead tanks overflow wasting water.", solution: "Level sensors top/bottom, auto-pump via relay app.", prototype: "Tank fill sim, pump toggle on low.", type: "Hardware + Software"},
+            {title: "Road Pothole Mapper", context: "Potholes damage vehicles unreported.", solution: "Accelerometer on bike-mount ESP32, GPS app mapping.", prototype: "Bump sim, plot locations on dashboard.", type: "Hardware + Software"},
+            {title: "HVAC Energy Optimizer", context: "AC overuse spikes campus bills.", solution: "Temp sensors zones, ESP32 scheduling dashboard.", prototype: "Multi-room sim, auto-adjust based on occupancy.", type: "Hardware + Software"},
+            {title: "Construction Dust Monitor", context: "Site dust pollutes nearby areas.", solution: "Dust sensor PM2.5 on ESP32, mist spray trigger.", prototype: "Fan dust sim, auto-activate 'sprayer'.", type: "Hardware + Software"}
+        ]
+    },
+    4: {
+        title: "Human-Centric Technology & Accessibility",
+        problems: [
+            {title: "Fall Detection Wearable", context: "Elderly falls go unnoticed delaying aid.", solution: "Accelerometer on ESP32 wristband, SOS buzzer/app alert.", prototype: "Tilt/shake trigger, location share demo.", type: "Hardware + Software"},
+            {title: "Smart Pill Dispenser", context: "Medication non-compliance worsens chronic illnesses.", solution: "Servo dispenser on Arduino, time-based app reminders.", prototype: "Box dispensing at set times, compliance log.", type: "Hardware + Software"},
+            {title: "Blind Navigation Aid", context: "Visually impaired face obstacle hazards.", solution: "Ultrasonic cane on ESP32, vibration alerts, voice GPS.", prototype: "Obstacle beep/vibe, direction guide on speaker.", type: "Hardware + Software"},
+            {title: "Heart Rate Alert Band", context: "Sudden irregularities undetected in vulnerable groups.", solution: "Pulse sensor on ESP32, threshold alert to guardian app.", prototype: "Finger sim abnormal rate, emergency ping.", type: "Hardware + Software"},
+            {title: "Sign Language Translator", context: "Hearing impaired communication barriers in services.", solution: "Flex sensors glove to ESP32, basic gesture-to-text app.", prototype: "Gesture input, display translated words.", type: "Hardware + Software"},
+            {title: "Wheelchair Obstacle Avoider", context: "Uneven paths challenge mobility.", solution: "Ultrasonic front sensors, motor pause on ESP32.", prototype: "Model chair stopping pre-collision.", type: "Hardware + Software"},
+            {title: "Voice-Controlled Home Aid", context: "Disabled users need hands-free controls.", solution: "ESP32 mic simple commands for lights/doors via relay.", prototype: "Voice 'light on', appliance toggle.", type: "Hardware + Software"},
+            {title: "Posture Corrector Vest", context: "Poor posture causes back pain in students.", solution: "Flex sensor back, vibe alert on slouch via Arduino.", prototype: "Bend trigger, correction buzz.", type: "Hardware + Software"},
+            {title: "Braille Reader Device", context: "Printed text inaccessible to blind.", solution: "Camera OCR to vibration motors on glove ESP32.", prototype: "Scan text, haptic letter feedback.", type: "Hardware + Software"},
+            {title: "Emergency Panic Button", context: "Women safety in public spaces lacks quick response.", solution: "ESP32 button with GPS, auto-alert contacts/location.", prototype: "Press send SOS with map pin.", type: "Hardware + Software"},
+            {title: "Infant Temperature Monitor", context: "Fever spikes need instant parental alerts.", solution: "Skin temp sensor patch ESP32, app threshold push.", prototype: "Heat sim, instant notification.", type: "Hardware + Software"},
+            {title: "Driver Fatigue Alert System", context: "Long drives risk drowsy accidents.", solution: "Eye blink cam or gyro on ESP32 dash, horn trigger.", prototype: "Head nod sim, loud alert.", type: "Hardware + Software"}
+        ]
+    },
+    5: {
+        title: "Smart Systems for Education & Campus Life",
+        problems: [
+            {title: "Attendance Tracker Booth", context: "Manual roll calls waste class time.", solution: "RFID/QR scanner on ESP32 kiosk, real-time dashboard.", prototype: "Scan card, mark present on class list.", type: "Hardware + Software"},
+            {title: "Library Book Finder", context: "Lost books delay student access.", solution: "RFID tags with ESP32 locators, app shelf map.", prototype: "Place 'book', app shows position.", type: "Hardware + Software"},
+            {title: "Lab Equipment Booker", context: "Overbooking causes lab conflicts.", solution: "QR on gear to ESP32, slot booking dashboard.", prototype: "Scan reserve, availability calendar.", type: "Hardware + Software"},
+            {title: "Canteen Queue Manager", context: "Long lines frustrate during breaks.", solution: "IR counter ESP32, token dispenser, wait-time app.", prototype: "Pass sim, estimated time display.", type: "Hardware + Software"},
+            {title: "Study Room Occupancy Monitor", context: "Rooms taken without visibility.", solution: "Door PIR sensors hub, free room app map.", prototype: "Enter/exit, update room status.", type: "Hardware + Software"},
+            {title: "Event Crowd Counter", context: "Safety risks from overcrowding.", solution: "Overhead IR gates on Arduino, capacity alert.", prototype: "Gate passes, dashboard nearing limit.", type: "Hardware + Software"},
+            {title: "Whiteboard Usage Logger", context: "No record of class notes.", solution: "Camera snap on button ESP32, cloud gallery app.", prototype: "Capture board, store/share images.", type: "Hardware + Software"},
+            {title: "Campus Shuttle Tracker", context: "Unpredictable bus timings.", solution: "GPS on ESP32 bus model, live location app.", prototype: "Move 'bus', ETA on student dashboard.", type: "Hardware + Software"},
+            {title: "Sports Ground Booker", context: "Double-bookings spoil games.", solution: "RFID gate check-in, usage calendar web.", prototype: "Swipe access, booked slots show.", type: "Hardware + Software"},
+            {title: "Hostel Power Monitor", context: "Wastage from unused appliances.", solution: "Plug current sensors, room-wise dashboard.", prototype: "Load sim, per-room consumption graph.", type: "Hardware + Software"},
+            {title: "Feedback Kiosk", context: "Slow prof feedback collection.", solution: "Touch buttons or QR on ESP32, anon dashboard.", prototype: "Rate submit, avg scores live.", type: "Hardware + Software"},
+            {title: "Printer Queue Manager", context: "Paper jams from unmanaged prints.", solution: "RFID user auth ESP32, job status app.", prototype: "Auth print, queue position show.", type: "Hardware + Software"}
+        ]
+    },
+    6: {
+        title: "Data-Driven Systems & Digital Intelligence",
+        problems: [
+            {title: "Real-Time Poll System", context: "Classroom polls lack instant analytics.", solution: "QR join via phone, ESP32 hub tally dashboard.", prototype: "Vote submit, live pie chart.", type: "Hardware + Software"},
+            {title: "Asset Tracker for Labs", context: "Equipment misplaced frequently.", solution: "ESP32 beacons on items, finder app heatmap.", prototype: "Move tags, signal strength map.", type: "Hardware + Software"},
+            {title: "Visitor Management Gate", context: "Unauthorized campus entry risks security.", solution: "QR temp pass scanner ESP32, entry log dashboard.", prototype: "Scan approve/deny, visitor list.", type: "Hardware + Software"},
+            {title: "Energy Consumption Analyzer", context: "No insights into campus power peaks.", solution: "CT clamps on mains ESP32, anomaly detection app.", prototype: "Load vary, spike alerts/graph.", type: "Hardware + Software"},
+            {title: "Feedback Analytics Booth", context: "Event surveys unstructured.", solution: "Buttons for ratings ESP32, sentiment trend dashboard.", prototype: "Rate event, word cloud generate.", type: "Hardware + Software"},
+            {title: "Queue Length Estimator", context: "Cafeteria waits unoptimized.", solution: "Camera count or IR ESP32, avg wait predictor.", prototype: "Line sim, time forecast.", type: "Hardware + Software"},
+            {title: "Document Scanner Station", context: "Manual uploads slow submissions.", solution: "Camera ESP32 OCR, cloud upload dashboard.", prototype: "Scan paper, text extract/store.", type: "Hardware + Software"},
+            {title: "Noise Complaint Mapper", context: "Campus noise sources unidentified.", solution: "Distributed mics ESP32 net, hotspot dashboard map.", prototype: "Sound play, loudest area highlight.", type: "Hardware + Software"},
+            {title: "Maintenance Request Tracker", context: "Repair delays from poor logging.", solution: "QR on assets to ESP32 kiosk, priority dashboard.", prototype: "Scan report, status update.", type: "Hardware + Software"},
+            {title: "Water Usage Predictor", context: "Fountains/coolers waste without forecasts.", solution: "Flow sensors ESP32, usage pattern app forecast.", prototype: "Usage log, next-hour predict.", type: "Hardware + Software"},
+            {title: "Lost & Found Locator", context: "Items unclaimed due to no tracking.", solution: "RFID drop box ESP32, claim via app photo match.", prototype: "Drop item, notify matcher.", type: "Hardware + Software"},
+            {title: "Classroom Utilization Tracker", context: "Empty rooms underutilized.", solution: "Door PIRs ESP32, booking optimizer dashboard.", prototype: "Occupancy toggle, free slot suggest.", type: "Hardware + Software"}
+        ]
+    }
+};
+
+function openThemeModal(themeId) {
+    const modal = document.getElementById('themeModal');
+    const title = document.getElementById('themeModalTitle');
+    const problemsContainer = document.getElementById('themeModalProblems');
+    
+    if (!modal || !title || !problemsContainer) return;
+    
+    const theme = themeProblems[themeId];
+    if (!theme) return;
+    
+    // Set title
+    title.textContent = theme.title;
+    
+    // Clear and populate problems
+    problemsContainer.innerHTML = '';
+    theme.problems.forEach((problem, index) => {
+        const psNumber = (index + 1).toString().padStart(2, '0');
+        const psId = `PS${themeId}${psNumber}`;
+        
+        const problemDiv = document.createElement('div');
+        problemDiv.className = 'problem-item';
+        problemDiv.innerHTML = `
+            <div class="problem-header" onclick="toggleProblemDetails(this)">
+                <span class="problem-id">${psId}</span>
+                <span class="problem-title-text">${problem.title}</span>
+                <span class="problem-expand-icon">▼</span>
+            </div>
+            <div class="problem-details">
+                <p class="problem-context"><strong>Context:</strong> ${problem.context}</p>
+                <p class="problem-solution"><strong>Solution:</strong> ${problem.solution}</p>
+                <p class="problem-prototype"><strong>Expected prototype:</strong> ${problem.prototype}</p>
+                <p class="problem-type"><span class="type-badge">${problem.type}</span></p>
+            </div>
+        `;
+        problemsContainer.appendChild(problemDiv);
+    });
+    
+    // Show modal
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function searchAllProblems() {
+    const searchInput = document.getElementById('problemSearch');
+    const filterValue = searchInput.value.toLowerCase().trim();
+    
+    if (filterValue.length === 0) {
+        closeSearchModal();
+        return;
+    }
+    
+    const resultsModal = document.getElementById('searchResultsModal');
+    const resultsContainer = document.getElementById('searchResultsContainer');
+    let resultsHTML = '';
+    let foundCount = 0;
+    
+    // Search through all themes
+    Object.keys(themeProblems).forEach(themeId => {
+        const theme = themeProblems[themeId];
+        
+        theme.problems.forEach((problem, index) => {
+            const psNumber = (index + 1).toString().padStart(2, '0');
+            const psId = `PS${themeId}${psNumber}`;
+            const searchText = `${psId} ${problem.title} ${problem.context} ${problem.solution} ${problem.prototype} ${problem.type}`.toLowerCase();
+            
+            if (searchText.includes(filterValue)) {
+                foundCount++;
+                resultsHTML += `
+                    <div class="problem-item">
+                        <div class="problem-header">
+                            <div class="problem-number-wrapper">
+                                <span class="problem-id">${psId}</span>
+                                <span class="problem-theme-badge">Theme ${themeId}: ${theme.title}</span>
+                            </div>
+                            <button class="problem-toggle" onclick="toggleProblemDetails(this)">
+                                <span class="problem-title-text">${problem.title}</span>
+                                <svg class="problem-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="problem-details">
+                            <div class="problem-detail-section">
+                                <h4>Context</h4>
+                                <p>${problem.context}</p>
+                            </div>
+                            <div class="problem-detail-section">
+                                <h4>Solution Focus</h4>
+                                <p>${problem.solution}</p>
+                            </div>
+                            <div class="problem-detail-section">
+                                <h4>Prototype Suggestion</h4>
+                                <p>${problem.prototype}</p>
+                            </div>
+                            <div class="problem-detail-section">
+                                <h4>Project Type</h4>
+                                <p>${problem.type}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+    });
+    
+    if (foundCount === 0) {
+        resultsHTML = '<div class="no-results"><p>No problem statements found matching your search.</p></div>';
+    }
+    
+    resultsContainer.innerHTML = resultsHTML;
+    resultsModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSearchModal() {
+    const modal = document.getElementById('searchResultsModal');
+    modal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+}
+
+function toggleProblemDetails(header) {
+    const problemItem = header.closest('.problem-item');
+    const details = problemItem.querySelector('.problem-details');
+    const icon = problemItem.querySelector('.problem-expand-icon');
+    
+    problemItem.classList.toggle('expanded');
+    
+    if (problemItem.classList.contains('expanded')) {
+        details.style.maxHeight = details.scrollHeight + 'px';
+        icon.textContent = '▲';
+    } else {
+        details.style.maxHeight = '0';
+        icon.textContent = '▼';
+    }
+}
+
+function closeThemeModal() {
+    const modal = document.getElementById('themeModal');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+}
+
+// Close modal on outside click
+if (document.getElementById('themeModal')) {
+    document.getElementById('themeModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeThemeModal();
+        }
+    });
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeThemeModal();
+    }
+});
+
 // ========================================
 // REMOVABLE FEATURES - Easy to Delete/Comment
 // ========================================
