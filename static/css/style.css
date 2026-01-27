@@ -734,6 +734,7 @@
 
 .flag-stripe.saffron {
     background: #FF9933;
+    background: linear-gradient(180deg, #FF9933 0%, #FF9933 100%);
 }
 
 .flag-stripe.white {
@@ -745,26 +746,22 @@
 
 .flag-stripe.green {
     background: #138808;
+    background: linear-gradient(180deg, #138808 0%, #138808 100%);
 }
 
-.ashoka-chakra-small {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #000080;
-    border-radius: 50%;
-    position: relative;
+.ashoka-chakra-svg {
+    width: 24px;
+    height: 24px;
+    animation: rotateChakra 10s linear infinite;
 }
 
-.ashoka-chakra-small::before {
-    content: '';
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #000080;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+@keyframes rotateChakra {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .popup-title {
