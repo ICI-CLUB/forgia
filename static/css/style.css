@@ -718,13 +718,14 @@
 }
 
 .popup-flag {
-    width: 120px;
-    height: 80px;
+    width: 150px;
+    height: 100px;
     margin: 0 auto 20px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     position: relative;
+    border: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 .flag-stripe {
@@ -733,25 +734,23 @@
 }
 
 .flag-stripe.saffron {
-    background: #FF9933;
-    background: linear-gradient(180deg, #FF9933 0%, #FF9933 100%);
+    background: #FF9933 !important;
 }
 
 .flag-stripe.white {
-    background: #FFFFFF;
+    background: #FFFFFF !important;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .flag-stripe.green {
-    background: #138808;
-    background: linear-gradient(180deg, #138808 0%, #138808 100%);
+    background: #138808 !important;
 }
 
 .ashoka-chakra-svg {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     animation: rotateChakra 10s linear infinite;
 }
 
