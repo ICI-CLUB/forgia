@@ -470,33 +470,32 @@ window.addEventListener('load', () => {
 });
 
 /**
- * REPUBLIC DAY WISHES POPUP (REMOVABLE AFTER JAN 26)
- * To remove: Comment out or delete this entire section
+ * REGISTRATION CLOSED POPUP
  */
-function showRepublicDayPopup() {
-    const popup = document.getElementById('republicDayPopup');
+function showRegistrationClosedPopup() {
+    const popup = document.getElementById('registrationClosedPopup');
     if (!popup) return;
     
     // Check if user has closed it before in this session
-    const popupClosed = sessionStorage.getItem('republicPopupClosed');
+    const popupClosed = sessionStorage.getItem('registrationClosedPopupClosed');
     if (popupClosed === 'true') return;
     
     // Show popup after 2 seconds
     setTimeout(() => {
         popup.classList.add('show');
         
-        // Auto-hide after 8 seconds
+        // Auto-hide after 10 seconds
         setTimeout(() => {
-            closeRepublicPopup();
-        }, 8000);
+            closeRegistrationPopup();
+        }, 10000);
     }, 2000);
 }
 
-function closeRepublicPopup() {
-    const popup = document.getElementById('republicDayPopup');
+function closeRegistrationPopup() {
+    const popup = document.getElementById('registrationClosedPopup');
     if (popup) {
         popup.classList.remove('show');
-        sessionStorage.setItem('republicPopupClosed', 'true');
+        sessionStorage.setItem('registrationClosedPopupClosed', 'true');
     }
 }
 
@@ -563,10 +562,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallaxEffects();
     initButtonCountdown(); // Button countdown timer
     
-    // Initialize removable features
-    showDeadlineNotification(); // REMOVABLE: Comment out after Jan 29
-    showRepublicDayPopup(); // REMOVABLE: Comment out after Jan 26
-    addLoadersToRegistrationButtons(); // REMOVABLE: Comment out if not needed
+    // Initialize registration closed features
+    showRegistrationClosedPopup(); // Show registration closed notification
+    addRegistrationClosedAlerts(); // Add alerts to registration buttons
 });
 
 /**
