@@ -766,16 +766,18 @@
 .popup-title {
     font-size: 28px;
     font-weight: 700;
-    color: #000080;
+    color: #DC2626;
     margin: 15px 0 10px;
     font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .popup-message {
-    font-size: 18px;
-    color: #333;
+    font-size: 20px;
+    color: #DC2626;
     margin: 10px 0;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .popup-message strong {
@@ -784,8 +786,8 @@
 }
 
 .popup-subtitle {
-    font-size: 15px;
-    color: #666;
+    font-size: 16px;
+    color: #333;
     margin: 15px 0;
     line-height: 1.6;
 }
@@ -804,6 +806,36 @@
     font-weight: 600;
     font-style: italic;
     margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.popup-register-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #FF6B35, #F59E0B);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.popup-register-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(255, 107, 53, 0.7);
+    }
 }
 
 @keyframes fadeIn {
