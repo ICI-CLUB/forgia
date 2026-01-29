@@ -26,190 +26,20 @@
     </div>
     <!-- ========== END PAGE LOADER ========== -->
 
-    <!-- ========== REGISTRATION DEADLINE NOTIFICATION (REMOVE AFTER JAN 29) ========== -->
-    <!-- To remove after deadline: Delete this entire section or comment it out -->
-    <div class="deadline-notification" id="deadlineNotification">
-        <div class="notification-content">
-            <div class="notification-icon">⌛</div>
-            <div class="notification-text">
-                <h4>Hurry Up!</h4>
-                <p>Registration closes on <strong>January 29, 2026 by 9 PM</strong>. Secure your spot now!</p>
-            </div>
-            <button class="notification-close" onclick="closeNotification()">×</button>
-        </div>
-    </div>
-    <!-- ========== END DEADLINE NOTIFICATION ========== -->
 
-    <!-- ========== REPUBLIC DAY WISHES POPUP ========== -->
-    <div class="republic-day-popup" id="republicDayPopup">
-        <div class="popup-content urgent-popup">
-            <button class="popup-close" onclick="closeRepublicPopup()">&times;</button>
-            <div class="ticking-clock">⏰</div>
-            <h2 class="popup-title urgent-title">🚨 TICK TICK... TIME'S RUNNING OUT! 🚨</h2>
-            <p class="popup-message urgent-message"><strong>ONLY FEW MINUTES LEFT!</strong></p>
-            <p class="popup-timer">Registration closes TONIGHT at 9 PM SHARP</p>
-            <p class="popup-subtitle urgent-subtitle">⚠️ RUSH NOW! Don't miss <strong>FORGIA 2026</strong> - January 31st! ⚠️</p>
-            <div class="popup-divider urgent-divider"></div>
-            <p class="popup-tagline blink-text">ACT NOW OR MISS OUT! 🏃‍♂️💨</p>
-            <a href="#register" class="popup-register-btn urgent-btn" onclick="closeRepublicPopup(); document.getElementById('register').scrollIntoView({behavior: 'smooth'});">⚡ REGISTER RIGHT NOW ⚡</a>
-        </div>
-    </div>
-    <!-- ========== END REPUBLIC DAY POPUP ========== -->
 
-    <!-- ========== REPUBLIC DAY BACKGROUND MUSIC ========== -->
-    <audio id="republicDayMusic" autoplay loop preload="auto">
-        <source src="static/Images/Music/A.R.__Rahman_-_Vande_Mataram_[1997]_Thai_Mannai_Vanakkam__Tamil_(48k).mp3" type="audio/mpeg">
-    </audio>
-    
-    <!-- Animated Music Player -->
-    <div class="music-player-container" id="musicPlayerContainer">
-        <div class="music-planet-wrapper">
-            <svg width="128" height="128" viewBox="0 0 128 128" class="music-planet-svg">
-                <!-- Saffron band -->
-                <rect width="128" height="42.67" fill="#FF9933"></rect>
-                <!-- White band -->
-                <rect y="42.67" width="128" height="42.67" fill="#FFFFFF"></rect>
-                <!-- Green band -->
-                <rect y="85.34" width="128" height="42.66" fill="#138808"></rect>
-                <!-- Ashoka Chakra -->
-                <circle cx="64" cy="64" r="20" fill="none" stroke="#000080" stroke-width="2"></circle>
-                <circle cx="64" cy="64" r="3" fill="#000080"></circle>
-                <!-- 24 spokes -->
-                <g transform="translate(64, 64)">
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(15)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(30)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(45)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(60)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(75)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(90)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(105)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(120)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(135)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(150)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(165)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(180)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(195)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(210)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(225)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(240)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(255)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(270)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(285)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(300)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(315)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(330)"></line>
-                    <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(345)"></line>
-                </g>
-            </svg>
-            <div class="music-planet-moon"></div>
-        </div>
-        <div class="music-player-card">
-            <div class="music-player-header">
-                <div class="music-player-planet-small">
-                    <svg width="96" height="96" viewBox="0 0 128 128" class="music-planet-svg-small">
-                        <!-- Saffron band -->
-                        <rect width="128" height="42.67" fill="#FF9933"></rect>
-                        <!-- White band -->
-                        <rect y="42.67" width="128" height="42.67" fill="#FFFFFF"></rect>
-                        <!-- Green band -->
-                        <rect y="85.34" width="128" height="42.66" fill="#138808"></rect>
-                        <!-- Ashoka Chakra -->
-                        <circle cx="64" cy="64" r="20" fill="none" stroke="#000080" stroke-width="2"></circle>
-                        <circle cx="64" cy="64" r="3" fill="#000080"></circle>
-                        <!-- 24 spokes -->
-                        <g transform="translate(64, 64)">
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(15)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(30)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(45)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(60)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(75)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(90)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(105)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(120)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(135)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(150)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(165)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(180)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(195)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(210)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(225)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(240)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(255)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(270)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(285)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(300)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(315)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(330)"></line>
-                            <line x1="0" y1="-17" x2="0" y2="-3" stroke="#000080" stroke-width="1.5" transform="rotate(345)"></line>
-                        </g>
-                    </svg>
-                    <div class="music-planet-moon-small"></div>
-                </div>
-                <div class="music-info">
-                    <p class="music-title">Vande Mataram</p>
-                    <p class="music-artist">A.R. Rahman</p>
-                </div>
-            </div>
-            <div class="music-progress-wrapper">
-                <span class="music-time-current">0:00</span>
-                <input type="range" min="0" max="366" value="0" class="music-progress-bar" id="musicProgressBar" aria-label="Music progress"/>
-                <span class="music-time-total">6:06</span>
-            </div>
-            <div class="music-controls">
-                <label class="music-control-btn music-shuffle-btn">
-                    <input type="checkbox" id="playMode" class="music-checkbox" aria-label="Toggle shuffle mode"/>
-                    <svg class="music-icon-repeat" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="17 1 21 5 17 9"></polyline>
-                        <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
-                        <polyline points="7 23 3 19 7 15"></polyline>
-                        <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
-                    </svg>
-                    <svg class="music-icon-shuffle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="16 3 21 3 21 8"></polyline>
-                        <line x1="4" y1="20" x2="21" y2="3"></line>
-                        <polyline points="21 16 21 21 16 21"></polyline>
-                        <line x1="15" y1="15" x2="21" y2="21"></line>
-                        <line x1="4" y1="4" x2="9" y2="9"></line>
-                    </svg>
-                </label>
-                <div class="music-control-btn" onclick="skipBackward()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="19 20 9 12 19 4 19 20"></polygon>
-                        <line x1="5" y1="19" x2="5" y2="5"></line>
-                    </svg>
-                </div>
-                <label class="music-control-btn music-play-btn">
-                    <input type="checkbox" id="playStatus" class="music-checkbox" checked aria-label="Play or pause music"/>
-                    <svg class="music-icon-play" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                    <svg class="music-icon-pause" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="6" y="4" width="4" height="16"></rect>
-                        <rect x="14" y="4" width="4" height="16"></rect>
-                    </svg>
-                </label>
-                <div class="music-control-btn" onclick="skipForward()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="5 4 15 12 5 20 5 4"></polygon>
-                        <line x1="19" y1="5" x2="19" y2="19"></line>
-                    </svg>
-                </div>
-                <div class="music-control-btn music-playlist-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="8" y1="6" x2="21" y2="6"></line>
-                        <line x1="8" y1="12" x2="21" y2="12"></line>
-                        <line x1="8" y1="18" x2="21" y2="18"></line>
-                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                    </svg>
-                </div>
-            </div>
+    <!-- ========== REGISTRATION CLOSED SIDE NOTIFICATION ========== -->
+    <div class="side-notification" id="registrationClosedPopup">
+        <button class="side-notification-close" onclick="closeRegistrationPopup()">&times;</button>
+        <div class="side-notification-icon">🚫</div>
+        <div class="side-notification-content">
+            <h4 class="side-notification-title">Registrations Closed</h4>
+            <p class="side-notification-text">For inquiries, contact coordinators below.</p>
         </div>
     </div>
-    <!-- ========== END REPUBLIC DAY MUSIC ========== -->
+    <!-- ========== END REGISTRATION CLOSED SIDE NOTIFICATION ========== -->
+
+    <!-- Music player removed as registrations are closed -->
 
     <!-- Floating Navigation -->
     <nav class="navbar" id="navbar">
@@ -285,18 +115,14 @@
                 </div>
             </div>
             <div class="hero-cta">
-                <a href="#register" class="hero-register-btn">
+                <a href="#register" class="hero-register-btn registration-closed-btn">
                     <div class="btn-content">
-                        <div class="btn-countdown" id="btnCountdown">
-                            <span class="countdown-part"><span id="btnDays">00</span>d</span>
-                            <span class="countdown-part"><span id="btnHours">00</span>h</span>
-                            <span class="countdown-part"><span id="btnMinutes">00</span>m</span>
-                            <span class="countdown-part"><span id="btnSeconds">00</span>s</span>
-                        </div>
-                        <span class="btn-text">Register Now</span>
+                        <span class="btn-text">Registrations are Closed</span>
                     </div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                        <line x1="9" y1="9" x2="15" y2="15"></line>
                     </svg>
                 </a>
             </div>
@@ -970,47 +796,53 @@
         <div class="container">
             <div class="register-wrapper">
                 <div class="register-content">
-                    <span class="section-tag">Join FORGIA</span>
-                    <h2 class="register-title">Ready to Forge Your Ideas?</h2>
+                    <span class="section-tag">FORGIA 2026 Registration</span>
+                    <h2 class="register-title">🚫 Registrations are Closed</h2>
                     <p class="register-description">
-                        Form your team, pick a theme, and submit your initial idea. 
-                        The top 40 teams will be selected to participate in FORGIA 2026.
+                        Registration deadline has passed. Thank you for your interest in FORGIA 2026!
+                        The event will take place on January 31, 2026.
                     </p>
                     <div class="register-details">
                         <div class="detail-item">
-                            <span class="detail-icon">👥</span>
-                            <div class="detail-text">
-                                <strong>Team Size</strong>
-                                <span>3 – 4 Members</span>
-                            </div>
-                        </div>
-                        <div class="detail-item">
                             <span class="detail-icon">📅</span>
                             <div class="detail-text">
-                                <strong>Deadline</strong>
-                                <span>January 29, 2026 by 9 PM</span>
+                                <strong>Event Date</strong>
+                                <span>January 31, 2026</span>
                             </div>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-icon">🎯</span>
+                            <span class="detail-icon">⏰</span>
                             <div class="detail-text">
-                                <strong>Selection</strong>
-                                <span>Top 40 Teams</span>
+                                <strong>Time</strong>
+                                <span>9:00 AM – 5:00 PM</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📞</span>
+                            <div class="detail-text">
+                                <strong>Inquiries</strong>
+                                <span>Contact Authors Below</span>
                             </div>
                         </div>
                     </div>
+                    <p class="register-note" style="margin-top: 2rem; padding: 1rem; background: rgba(255,193,7,0.1); border-left: 4px solid #ffc107; border-radius: 8px;">
+                        💡 <strong>Need information about available seats?</strong><br>
+                        Please contact the coordinators listed below for any inquiries.
+                    </p>
                 </div>
                 <div class="register-action">
-                    <div class="qr-placeholder">
-                        <img src="static/Images/Others/Registration QR Code.png" alt="FORGIA 2026 Registration QR Code" class="qr-image">
+                    <div class="qr-placeholder" style="opacity: 0.3; filter: grayscale(100%);">
+                        <img src="static/Images/Others/Registration QR Code.png" alt="FORGIA 2026 Registration Closed" class="qr-image">
                     </div>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmKgVuSq3bpVqgdcg_9o2aDQZZzyhXV3rq4SuH-AcBI96-dQ/viewform" class="register-link" target="_blank" rel="noopener">
-                        <span>Registration Form</span>
+                    <button class="register-link" style="background: #6c757d; cursor: not-allowed;" disabled>
+                        <span>Registration Closed</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="15" y1="9" x2="9" y2="15"></line>
+                            <line x1="9" y1="9" x2="15" y2="15"></line>
                         </svg>
-                    </a>
-                    <p class="register-note">Scan the QR code or click the link above</p>
+                    </button>
+                    <p class="register-note">Contact event coordinators for inquiries</p>
                 </div>
             </div>
         </div>

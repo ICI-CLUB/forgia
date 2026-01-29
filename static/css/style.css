@@ -648,7 +648,117 @@
 }
 /* ========== END ANIMATED MUSIC PLAYER ========== */
 
-/* ========== REPUBLIC DAY WISHES POPUP ========== */
+/* ========== SIDE NOTIFICATION ========== */
+.side-notification {
+    position: fixed;
+    top: 100px;
+    right: -400px;
+    width: 320px;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-left: 4px solid #DC2626;
+}
+
+.side-notification.show {
+    right: 20px;
+}
+
+.side-notification-icon {
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.side-notification-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.side-notification-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #DC2626;
+    margin: 0 0 6px 0;
+    font-family: var(--font-display);
+}
+
+.side-notification-text {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.side-notification-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: #666;
+    line-height: 1;
+}
+
+.side-notification-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .side-notification {
+        width: calc(100% - 40px);
+        max-width: 320px;
+        right: -100%;
+    }
+    
+    .side-notification.show {
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .side-notification {
+        top: 80px;
+        width: calc(100% - 32px);
+        right: -100%;
+        padding: 14px 16px;
+    }
+    
+    .side-notification.show {
+        right: 16px;
+    }
+    
+    .side-notification-icon {
+        font-size: 24px;
+    }
+    
+    .side-notification-title {
+        font-size: 14px;
+    }
+    
+    .side-notification-text {
+        font-size: 12px;
+    }
+}
+
+/* ========== OLD REPUBLIC DAY POPUP (KEPT FOR REFERENCE) ========== */
 .republic-day-popup {
     position: fixed;
     top: 0;
@@ -1678,6 +1788,24 @@ h1, h2, h3, h4, h5, h6 {
 .hero-register-btn .btn-content {
     position: relative;
     z-index: 1;
+}
+
+.hero-register-btn.registration-closed-btn {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    cursor: not-allowed;
+}
+
+.hero-register-btn.registration-closed-btn::before {
+    background: linear-gradient(135deg, #495057 0%, #343a40 100%);
+}
+
+.hero-register-btn.registration-closed-btn:hover {
+    transform: translateY(0);
+}
+
+.hero-register-btn .btn-icon {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
 }
 
 .hero-register-btn svg {

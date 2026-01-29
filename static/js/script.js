@@ -500,39 +500,7 @@ function closeRepublicPopup() {
     }
 }
 
-/**
- * DEADLINE NOTIFICATION (REMOVE AFTER JAN 29)
- * To remove: Comment out or delete this entire section
- */
-function showDeadlineNotification() {
-    const notification = document.getElementById('deadlineNotification');
-    if (!notification) return;
-    
-    // Check if user has closed it before
-    const notificationClosed = sessionStorage.getItem('deadlineNotificationClosed');
-    if (notificationClosed === 'true') return;
-    
-    // Show notification after 2 seconds
-    setTimeout(() => {
-        notification.style.display = 'block';
-        
-        // Auto-hide after 7 seconds
-        setTimeout(() => {
-            closeNotification();
-        }, 7000);
-    }, 2000);
-}
-
-function closeNotification() {
-    const notification = document.getElementById('deadlineNotification');
-    if (notification) {
-        notification.classList.add('hidden');
-        sessionStorage.setItem('deadlineNotificationClosed', 'true');
-        setTimeout(() => {
-            notification.style.display = 'none';
-        }, 600);
-    }
-}
+// Deadline notification removed - registrations are closed
 
 /**
  * ENTREPIX REDIRECT WITH LOADER (REMOVABLE)
@@ -561,34 +529,21 @@ function redirectToEntrepix() {
 }
 
 /**
- * REGISTRATION BUTTON LOADER (REMOVABLE)
- * To remove: Comment out or delete this entire function
+ * REGISTRATION CLOSED ALERT
  */
-function addLoadersToRegistrationButtons() {
-    const registerButtons = document.querySelectorAll('a[href*="#register"], .register-link, .hero-register-btn');
+function addRegistrationClosedAlerts() {
+    const registerButtons = document.querySelectorAll('a[href*="#register"], .hero-register-btn');
     
     registerButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            // If it's an external link (registration form)
-            if (button.classList.contains('register-link') && button.href.includes('forms.google.com')) {
-                e.preventDefault();
-                
-                const pageLoader = document.getElementById('pageLoader');
-                if (pageLoader) {
-                    pageLoader.style.display = 'flex';
-                    pageLoader.classList.remove('hidden');
-                }
-                
-                setTimeout(() => {
-                    window.open(button.href, '_blank');
-                    
-                    if (pageLoader) {
-                        pageLoader.classList.add('hidden');
-                        setTimeout(() => {
-                            pageLoader.style.display = 'none';
-                        }, 500);
-                    }
-                }, 600);
+            e.preventDefault();
+            
+            alert('🚫 Registrations are Closed\n\nRegistration deadline has passed. For inquiries about available seats or other questions, please contact the event coordinators listed in the Contact section.');
+            
+            // Scroll to contact section
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
